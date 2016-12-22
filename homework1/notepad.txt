@@ -1,0 +1,25 @@
+1)What is a version control tool?
+ans:- A component of software configuration management, version control, also known as revision control or source control, is the management of changes to documents, computer programs, large web sites, and other collections of information.
+
+2)What is repository?
+Ans:- In software development, a repository is a central file storage location. It is used by version control systems to store multiple versions of files. While a repository can be configured on a local machine for a single user, it is often stored on a server, which can be accessed by multiple users
+
+3)why do we need to use repository in software developement?
+Ans:- A Repository is a storage location.If everyone has the same code While multiple people can access the same code using the repository.
+
+4)What is GIT?
+Ans:-Git is, first and foremost, a version control system (VCS). Git serves as the foundation for many services, like GitHub and GitLab, but you can use Git without using any other service. This means that you can use Git privately or publicly.
+Git allows a team of people to work together, all using the same files. And it helps the team cope with the confusion that tends to happen when multiple people are editing the same files.
+
+5)What is GITHub?
+Ans:-GitHub is a web-based Git repository hosting service. It offers all of the distributed version control and source code management (SCM) functionality of Git as well as adding its own features.
+6)differences between GIT and GITHub?
+Ans:-Git is a distributed peer-peer version control system. ... "GitHub is a web-based Gitrepository hosting service, which offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features."
+
+7)What is pull,push,commit in GIT?	
+Ans:- git push is used to add commits you have done on the local repository to a remote one - together with git pull , it allows people to collaborate. 
+git commit record your changes to the local repository. 
+git push update the remote repository with your local changes.
+
+8)What are merge conflicts?
+Ans:- To resolve a merge conflict caused by competing line changes, you must choose which changes to incorporate from the different branches in a new commit. ... Navigate into the local Git repository that has the merge conflict.
