@@ -1,0 +1,6 @@
+Semantics is the study of the meanings of words and phrases in a language.
+Semantic elements = elements with a meaning.
+A semantic element clearly describes its meaning to both the browser and the developer.
+Examples of non-semantic elements: <div> and <span> - Tells nothing about its content.
+Examples of semantic elements: <form>, <table>, and <article> - Clearly defines its content.
+HTML5 semantic elements are supported in all modern browsers.

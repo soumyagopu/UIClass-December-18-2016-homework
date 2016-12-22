@@ -1,0 +1,2 @@
+The href attribute specifies the destination address (http://www.amazon.com) of the link.
+it will show the amazon webpage in the browser.

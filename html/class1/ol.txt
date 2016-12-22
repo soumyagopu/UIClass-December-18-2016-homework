@@ -1,0 +1,1 @@
+In ordered list we will get the webpage as an ordered form.i.e,the words which we entered in the list we will get in a specific order form.

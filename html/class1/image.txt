@@ -1,0 +1,4 @@
+In HTML, images are defined with the <img> tag.
+The alt attribute provides an alternate text for an image.
+The alt attribute is required. A web page will not validate correctly without it.
+we will get the image in the browser
