@@ -1,0 +1,199 @@
+The value attribute specifies the initial value for an input field:
+<form action="">
+First name:<br>
+<input type="text" name="firstname" value="John">
+</form>
+
+-->The readonly attribute specifies that the input field is read only (cannot be changed):
+<form action="">
+First name:<br>
+<input type="text" name="firstname" value="John" readonly>
+</form>
+
+-->The disabled attribute specifies that the input field is disabled.
+A disabled input field is unusable and un-clickable, and its value will not be sent when submitting the form:
+<form action="">
+First name:<br>
+<input type="text" name="firstname" value="John" disabled>
+</form>
+
+-->The size attribute specifies the size (in characters) for the input field:
+<form action="">
+First name:<br>
+<input type="text" name="firstname" value="John" size="40">
+</form>
+
+-->The maxlength attribute specifies the maximum allowed length for the input field:
+<form action="">
+First name:<br>
+<input type="text" name="firstname" maxlength="10">
+</form>
+
+-->the autocomplete attribute:-
+The autocomplete attribute specifies whether a form or input field should have autocomplete on or off.
+
+When autocomplete is on, the browser automatically complete the input values based on values that the user has entered before.
+<form action="action_page.php" autocomplete="on">
+  First name:<input type="text" name="fname"><br>
+  Last name: <input type="text" name="lname"><br>
+  E-mail: <input type="email" name="email" autocomplete="off"><br>
+  <input type="submit">
+</form>
+
+
+-->The novalidate Attribute
+The novalidate attribute is a <form> attribute.
+When present, novalidate specifies that the form data should not be validated when submitted.
+Indicates that the form is not to be validated on submit:
+<form action="action_page.php" novalidate>
+  E-mail: <input type="email" name="user_email">
+  <input type="submit">
+</form>
+
+-->The autofocus Attribute
+The autofocus attribute specifies that the input field should automatically get focus when the page loads
+Let the "First name" input field automatically get focus when the page loads:
+First name:<input type="text" name="fname" autofocus>
+
+-->The form Attribute
+The form attribute specifies one or more forms an <input> element belongs to.
+An input field located outside the HTML form (but still a part of the form):
+<form action="action_page.php" id="form1">
+  First name: <input type="text" name="fname"><br>
+  <input type="submit" value="Submit">
+</form>
+
+Last name: <input type="text" name="lname" form="form1">
+
+-->The formaction Attribute
+The formaction attribute specifies the URL of a file that will process the input control when the form is submitted.
+The formaction attribute overrides the action attribute of the <form> element.
+The formaction attribute is used with type="submit" and type="image".
+
+An HTML form with two submit buttons, with different actions:
+<form action="action_page.php">
+  First name: <input type="text" name="fname"><br>
+  Last name: <input type="text" name="lname"><br>
+  <input type="submit" value="Submit"><br>
+  <input type="submit" formaction="demo_admin.asp"
+  value="Submit as admin">
+</form>
+
+-->The formenctype Attribute
+The formenctype attribute specifies how the form data should be encoded when submitted (only for forms with method="post").
+The formenctype attribute overrides the enctype attribute of the <form> element.
+The formenctype attribute is used with type="submit" and type="image".
+Send form-data that is default encoded (the first submit button), and encoded as "multipart/form-data" (the second submit button):
+
+<form action="demo_post_enctype.asp" method="post">
+  First name: <input type="text" name="fname"><br>
+  <input type="submit" value="Submit">
+  <input type="submit" formenctype="multipart/form-data"
+  value="Submit as Multipart/form-data">
+</form>
+
+-->The formmethod Attribute
+The formmethod attribute defines the HTTP method for sending form-data to the action URL.
+The formmethod attribute overrides the method attribute of the <form> element.
+The formmethod attribute can be used with type="submit" and type="image".
+The second submit button overrides the HTTP method of the form:
+
+<form action="action_page.php" method="get">
+  First name: <input type="text" name="fname"><br>
+  Last name: <input type="text" name="lname"><br>
+  <input type="submit" value="Submit">
+  <input type="submit" formmethod="post" formaction="demo_post.asp"
+  value="Submit using POST">
+</form>
+
+-->The formnovalidate Attribute
+The formnovalidate attribute overrides the novalidate attribute of the <form> element.
+The formnovalidate attribute can be used with type="submit".
+A form with two submit buttons (with and without validation):
+<form action="action_page.php">
+  E-mail: <input type="email" name="userid"><br>
+  <input type="submit" value="Submit"><br>
+  <input type="submit" formnovalidate value="Submit without validation">
+</form>
+
+-->The formtarget Attribute
+The formtarget attribute specifies a name or a keyword that indicates where to display the response that is received after submitting the form.
+The formtarget attribute overrides the target attribute of the <form> element.
+The formtarget attribute can be used with type="submit" and type="image".
+A form with two submit buttons, with different target windows:
+
+<form action="action_page.php">
+  First name: <input type="text" name="fname"><br>
+  Last name: <input type="text" name="lname"><br>
+  <input type="submit" value="Submit as normal">
+  <input type="submit" formtarget="_blank"
+  value="Submit to a new window">
+</form>
+
+-->The height and width Attributes
+The height and width attributes specify the height and width of an <input type="image"> element.
+Define an image as the submit button, with height and width attributes:
+<input type="image" src="img_submit.gif" alt="Submit" width="48" height="48">
+
+-->The list Attribute
+The list attribute refers to a <datalist> element that contains pre-defined options for an <input> element.
+An <input> element with pre-defined values in a <datalist>:
+
+<input list="browsers">
+<datalist id="browsers">
+  <option value="Internet Explorer">
+  <option value="Firefox">
+  <option value="Chrome">
+  <option value="Opera">
+  <option value="Safari">
+</datalist>
+
+-->The min and max Attributes
+The min and max attributes specify the minimum and maximum values for an <input> element.
+The min and max attributes work with the following input types: number, range, date, datetime-local, month, time and week.
+<input> elements with min and max values:
+
+Enter a date before 1980-01-01:
+<input type="date" name="bday" max="1979-12-31">
+
+Enter a date after 2000-01-01:
+<input type="date" name="bday" min="2000-01-02">
+
+Quantity (between 1 and 5):
+<input type="number" name="quantity" min="1" max="5">
+
+-->The multiple Attribute
+The multiple attribute specifies that the user is allowed to enter more than one value in the <input> element.
+The multiple attribute works with the following input types: email, and file.
+A file upload field that accepts multiple values:
+Select images: <input type="file" name="img" multiple>
+
+-->The pattern Attribute
+The pattern attribute specifies a regular expression that the <input> element's value is checked against.
+The pattern attribute works with the following input types: text, search, url, tel, email, and password.
+An input field that can contain only three letters (no numbers or special characters):
+Country code: <input type="text" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code">
+
+
+-->The placeholder Attribute
+The placeholder attribute specifies a hint that describes the expected value of an input field (a sample value or a short description of the format).
+The hint is displayed in the input field before the user enters a value.
+The placeholder attribute works with the following input types: text, search, url, tel, email, and password.
+An input field with a placeholder text:
+<input type="text" name="fname" placeholder="First name">
+
+
+-->The required Attribute
+The required attribute specifies that an input field must be filled out before submitting the form.
+The required attribute works with the following input types: text, search, url, tel, email, password, date pickers, number, checkbox, radio, and file.
+A required input field:
+Username: <input type="text" name="usrname" required>
+
+-->The step Attribute
+The step attribute specifies the legal number intervals for an <input> element.
+The step attribute works with the following input types: number, range, date, datetime-local, month, time and week.
+An input field with a specified legal number intervals:
+<input type="number" name="points" step="3">
+
+
+

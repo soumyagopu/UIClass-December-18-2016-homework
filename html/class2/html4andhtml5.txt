@@ -1,0 +1,24 @@
+A great difference between HTML4 and HTML5 is that the HTML5 is introduced with several new APIs. Application Programming Interfaces or APIs aim to provide a better and improved web application development system. It also rectifies the shortcomings of HTML4 in this regard.
+For instance, by using HTML5, you can eliminate the requirement of any third party application to play audio and/or video files. For example, Flash is no longer required to play at least the supported files.
+
+HTML5 has also deleted of a couple of unnecessary elements. Many elements, which mainly focus on the presentation and visual aspect of a website, have now been replaced by more appropriate platforms.
+
+For instance, in HTML5, the TT and U tags, acronym, applet, dir, font, strike and center etc. have been replaced by the CSS or Cascadian Style Sheets.
+
+Another great difference between the HTML4 and HTML5 is that of the flexibility. HTML5 is believed to be more flexible than its predecessor. The new version is significantly more flexible when it comes to handling inaccurate syntax.
+
+Unlike HTML4, HTML5 specifies the related parsing and lexing rules. This flexibility enables it to show similar results, even if there is a slightly inaccurate syntax
+
+Unlike HTML4 that used common webpages structures like, columns and headers etc. HTML5 is preloaded with many elements to structure the webpages.
+
+These new elements include:
+
+Header
+Footer
+Section
+Article
+Nav
+Aside
+An important thing about these new elements in a webpage’s structure is that each element has a specified, useful and unique function.
+
+HTML5 is believed to be significantly more powerful than its previous version. For example, it can not only play audio and video files on its own, but it is also able to run video games in the Internet browser on its own.

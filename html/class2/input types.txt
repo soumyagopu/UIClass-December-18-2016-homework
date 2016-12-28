@@ -1,0 +1,171 @@
+1) explain all input types with examples?
+
+http://www.w3schools.com/TAGs/att_input_type.asp:-
+
+
+The <input> tag specifies an input field where the user can enter data.
+<input> elements are used within a <form> element to declare input controls that allow users to input data.
+An input field can vary in many ways, depending on the type attribute.
+An HTML form with three input fields; two text fields and one submit button:
+
+<form action="demo_form.asp">
+  First name: <input type="text" name="fname"><br>
+  Last name: <input type="text" name="lname"><br>
+  <input type="submit" value="Submit">
+</form>
+
+-> Input type:button
+A clickable button, that activates a JavaScript when it is clicked:
+<input type="button" value="Click me" onclick="msg()">
+
+
+--->Input type:checkbox
+Checkboxes let a user select one or more options of a limited number of choices:
+<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+<input type="checkbox" name="vehicle2" value="Car"> I have a car
+
+-->Input type: color
+Select a color from a color picker:
+Select your favorite color: <input type="color" name="favcolor">
+
+Define a date control:
+Birthday: <input type="date" name="bday">
+
+-->Input type: datetime-local
+Define a date and time control (no time zone):
+Birthday (date and time): <input type="datetime-local" name="bdaytime">
+
+--> Input type: email
+Define a field for an e-mail address (will be automatically validated when submitted):
+E-mail: <input type="email" name="usremail">
+
+-->Input type: file
+Define a file-select field and a "Browse..." button (for file uploads):
+Select a file: <input type="file" name="img">
+
+--> Input type: hidden
+Define a hidden field (not visible to a user).
+A hidden field often stores a default value, or can have its value changed by a JavaScript:
+<input type="hidden" name="country" value="Norway">
+
+-->Input type: image
+Define an image as a submit button:
+<input type="image" src="img_submit.gif" alt="Submit">
+
+-->Input type: month
+Define a month and year control (no time zone):
+Birthday (month and year): <input type="month" name="bdaymonth">
+
+-->Input type: number
+Define a field for entering a number
+Quantity (between 1 and 5): <input type="number" name="quantity" min="1" max="5">
+
+--> Input type: password
+Define a password field (characters are masked)
+<input type="password" name="pwd">
+
+--> Input type: radio
+Radio buttons let a user select only one of a limited number of choices:
+<input type="radio" name="gender" value="male"> Male<br>
+<input type="radio" name="gender" value="female"> Female<br>
+<input type="radio" name="gender" value="other"> Other
+
+--> Input type: range
+Define a control for entering a number whose exact value is not important (like a slider control). You can also set restrictions on what numbers are accepted:
+<input type="range" name="points" min="0" max="10">
+
+--> Input type: reset
+Define a reset button (resets all form values to default values):
+<input type="reset">
+
+--> Input type: search
+Define a search field (like a site search, or Google search):
+Search Google: <input type="search" name="googlesearch">
+
+--> Input type: submit
+Define a submit button:
+<input type="submit">
+
+-->Input type: tel
+Define a field for entering a telephone number:
+Telephone: <input type="tel" name="usrtel">
+
+-->Input type: text
+Define two single-line text fields that a user can enter text into:
+First name: <input type="text" name="fname"><br>
+Last name: <input type="text" name="lname"><br>
+
+-->Input type: time
+Define a control for entering a time (no time zone):
+Select a time: <input type="time" name="usr_time">
+
+-->Input type: url
+Define a field for entering a URL:
+Add your homepage: <input type="url" name="homepage">
+
+-->Input type: week
+Define a week and year control (no time zone):
+Select a week: <input type="week" name="week_year">
+
+-->http://html5doctor.com/html5-forms-input-types/
+
+-->Input type:search
+<input type="text" name="search">
+<input type="search" name="search">
+
+-->input type:month
+<input id="expiry" name="expiry" type="month" required>
+
+-->Input type:datetime
+<input id="entry-day-time" name="entry-day-time" type="datetime">
+
+-->www.coreservlets.com
+
+-->input type:list
+<input type="text"list=:some-id"/>
+Adding the "list" attribute lets you add autocomplete behavior to most of the text-oriented input types (reqular textfields, email, URL, search, etc.) covered in this tutorial. The value of "list" should be the id of a "datalist" element that contains "option" elements giving the choices. 
+
+
+-->input type:placeholder
+<input type="text"placeholder="some text"/>
+Adding the "placeholder" attribute lets you add a hint inside the textfield, but where the hint automatically disappears when you click inside it. This is like the "Password" text inside the textfield in the Windows login window. 
+
+<input type="text"pattern="some regular expression"/>
+Adding the "pattern" attribute lets you specify a regular expression for legal values. This is particularly useful when the legal pattern is clear from the prompt, or when you use "placeholder" to describe the pattern.
+
+https://www.tutorialspoint.com/html/html_input_tag.htm
+
+
+-->input type:checkboxcolor
+<input name="color[]" type="checkbox" value="green" /> green
+
+-->http://www.html-form-guide.com/html-form/html-form-input.html
+
+
+-->input type:text area
+<TEXTAREA NAME="Address" ROWS=3 COLS=30 >
+Instead of having just a single line to input on, the user can perform carriage returns to make better formatting of the text. This is also easier if the user will be inputting a large amount of text – address or ‘comments’
+
+
+-->input type:select
+The next input method is the select menu, which you have surely seen in many other web sites. These allow for a certain number of pre-designated answers to be chosen from. Use the following code:
+
+ <select multiple="multiple" name="colors">
+<option> RED </option>
+<option> GREEN </option>
+<option> YELLOW </option>
+<option> BLUE </option>
+<option> ORANGE </option>
+
+-->inpu type:checkboxes colors
+<input name="color[]" type="checkbox" value="green" /> green
+<input name="color[]" type="checkbox" value="red" /> red
+<input name="color[]" type="checkbox" value="blue" /> blue
+Instead of just being able to choose one color, the user can decide which colors he likes or dislikes from the list. This may not be implemented as much as the others, but it will still come in handy from time to time.
+</select>
+
+-->input type:checking radio buttons
+<input checked="checked" name="answer" type="radio" value="true" /> True
+<input name="answer" type="radio" value="false" /> False
+Any of the radio buttons with the same name will fall into the same cluster, and only allow one at a time to be checked.
+

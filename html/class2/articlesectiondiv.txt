@@ -1,0 +1,23 @@
+<article>
+An article should make sense on its own and it should be possible to distribute it independently from the rest of the site.
+Potential sources for the article element:
+Forum post
+Blog post
+News story
+Comment
+Basically these tags are semantic elements and the only real difference between them are readability and design preference.
+
+<section>
+
+The section element represents a generic section of a document or application. A section, in this context, is a thematic grouping of content, typically with a heading.
+
+Examples of sections would be chapters, the various tabbed pages in a tabbed dialog box, or the numbered sections of a thesis. A Web site's home page could be split into sections for an introduction, news items, and contact information.
+
+The section element is not a generic container element. When an element is needed for styling purposes or as a convenience for scripting, authors are encouraged to use the div element instead. A general rule is that the section element is appropriate only if the element's contents would be listed explicitly in the document's outline.
+
+<div>
+
+
+The div element has no special meaning at all. It represents its children. It can be used with the class, lang, and title attributes to mark up semantics common to a group of consecutive elements.
+
+Authors are strongly encouraged to view the div element as an element of last resort, for when no other element is suitable. Use of the div element instead of more appropriate elements leads to poor accessibility for readers and poor maintainability for authors.
