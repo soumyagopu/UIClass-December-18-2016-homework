@@ -1,0 +1,73 @@
+A pseudo-class is used to define a special state of an element.
+For example, it can be used to:
+•	Style an element when a user mouses over it
+•	Style visited and unvisited links differently
+•	Style an element when it gets focus
+
+•	Syntax
+•	The syntax of pseudo-classes:
+•	selector:pseudo-class {
+    property:value;
+}
+Dynamic Pseudo Class Selector
+This dynamic pseudo selector specialises in selecting elements in their various states, mostly for the different link states – a word pattern, ‘Love Hate’ is sometimes used to remember the order that they are best set, they are separated from the preceding element with a colon and no space “:”
+a:link {}
+a:visit {}
+a:hover {}
+a:active {}
+Typically they are used for links  tags <a> but can be used for any element.
+Also you can target anchor links when used with the #anchor-link-name in the URL and is selected like so
+a:target {
+//css-styles
+}
+Structural Pseudo Class Selector
+The structural pseudo selector allows you to select elements based on their structural position in the HTML markup
+p:first-child {
+//css-styles
+}
+Selects the first and only <p> tag from its parent element and subsequent <p> tags from adjacent  similar parent elements – but only if it is actually the first <p> element if another element precedes it, it doesn’t get selected.
+p:first-of-type {
+//css-styles
+}
+Selects the first  <p> tag from its parent element and subsequent <p> tags from adjacent  similar parent elements, if another element precedes it, it still does get selected.
+p:only-child {
+//css-styles
+}
+Selects the existence of a single <p> tag within its parent element
+These can also be used with the words ‘last-child‘ and ‘last-of-type‘.
+nth-Child Pseudo Class Selector
+This pseudo class selector targets elements based on numbering of elements in the HTML mark up, its format is also structured by the element a single colon :, followed by nth-child and then a numbered argument surrounded by brackets. This selector is typically used in list item mark up but can be used with other HTML elements.
+li:nth-child(5) {
+//css-styles
+}
+Selects the 5th <li> item in a list.
+li:nth-child(5n) {
+//css-styles
+}
+Selects every 5th <li> item in a list.
+li:nth-child(odd) {
+//css-styles
+}
+Selects every odd <li> item in a list.
+li:nth-child(even) {
+//css-styles
+}
+Selects every even <li> item in a list.
+li:nth-child(5n+3) {
+//css-styles
+}
+Selects every 5th <li> item in a list starting after the 3rd <li>, the 3rd <li> in this case is also selected.
+li:nth-child(-5n+3) {
+//css-styles
+}
+Using a minus makes the count start the other way – here the count starts at the 3rd from the end and selects that and every 5 element going up.
+A variation on nth-child is nth-last-child which be default works upwards in structure rather than downwards.
+li:nth-last-child(2n+5) {
+//css-styles
+}
+Starts from the bottom 5th element and selects every 2nd <li> going upwards, using a negative value here would go downwards.
+Another variation on nth-child and nth-last-child is nth-of-type and nth-last-of-type – the difference between these types are that the latter are more strict in terms of selecting the element type whereas the former is more constrained by the structure of the markup; parent/child relationship.
+div.field-item p:nth-of-type(3n) {
+//css-styles
+}
+Select every 3rd sequential <p> tag that is a descendant of a <div> with a class of ‘field-item‘

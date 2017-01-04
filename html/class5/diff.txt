@@ -1,0 +1,41 @@
+Pseudo classes are for selecting elements that exist but you can't select with the DOM. There's no way to tell what div being hovered in the markup, it depends on the action of the user. The div exists, but there's no way to select it with a normal class. Pseudo classes can be chained and used like a regular classes.
+
+A pseudo element selects elements that don't exist, creating a new virtual element. For instance, there's no tags for the first-line of an element. So it's like ::first-line is creating virtual tags to make it select-able. You can only use one pseudo element per selector, unlike Pseudo classes.
+Pseudo-classes
+Pseudo-classes select regular elements but under certain conditions, like when their position relative to siblings or when they’re under a particular state. Here is a list of pseudo-classes in CSS3:
+Dynamic pseudo-classes
+•	:link
+•	:visited
+•	:hover
+•	:active
+•	:focus
+UI element states pseudo-classes
+•	:enabled
+•	:disabled
+•	:checked
+Structural pseudo-classes
+•	:first-child
+•	:nth-child(n)
+•	:nth-last-child(n)
+•	:nth-of-type(n)
+•	:nth-last-of-type(n)
+•	:last-child
+•	:first-of-type
+•	:last-of-type
+•	:only-child
+•	:only-of-type
+•	:root
+•	:empty
+Other pseudo-classes
+•	:not(x)
+•	:target
+•	:lang(language)
+Pseudo-elements
+Pseudo-elements effectively create new elements that are not specified in the markup of the document and can be manipulated much like a regular element. This introduces huge benefits for creating cool effects with minimal markup, also aiding significantly in keeping the presentation of the document out of the HTML and in CSS where it belongs.
+With the introduction of CSS3 the difference between pseudo-classes and pseudo-elements is a lot more clear as it is now the standard to use double colon (::) on pseudo-elements, however we should be using single colon until certain browsers are phased out (I’m looking at you IE8 and below). Here is a list of pseudo-elements in CSS3:
+•	::before
+•	::after
+•	::first-letter
+•	::first-line
+Animations on pseudo-elements
+Unfortunately animations and transitions on pseudo elements are buggy or not implemented at the moment in most browsers.
