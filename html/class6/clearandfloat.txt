@@ -1,0 +1,20 @@
+The float property specifies whether or not an element should float.
+The clear property is used to control the behavior of floating elements.
+The float Property
+In its simplest use, the float property can be used to wrap text around images.
+The following example specifies that an image should float to the right in a text:
+Example
+img {
+    float: right;
+    margin: 0 0 10px 10px;
+}
+
+The clear Property
+
+The clear property is used to control the behavior of floating elements.
+Elements after a floating element will flow around it. To avoid this, use the clear property.
+The clear property specifies on which sides of an element floating elements are not allowed to float:
+Example
+div {
+    clear: left;
+}

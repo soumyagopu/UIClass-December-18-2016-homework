@@ -1,0 +1,89 @@
+The Bootstrap grid system has four classes:
+•	xs (for phones)
+•	sm (for tablets)
+•	md (for desktops)
+•	lg (for larger desktops)
+The classes above can be combined to create more dynamic and flexible layouts.
+Each class scales up, so if you wish to set the same widths for xs and sm, you only need to specify xs. 
+Bootstrap Grid Example: Mixed: Mobile, Tablet And Desktop
+Example
+<div class="row">
+  <div class="col-xs-7 col-sm-6 col-lg-8">.col-xs-7 .col-sm-6 .col-lg-8</div>
+  <div class="col-xs-5 col-sm-6 col-lg-4">.col-xs-5 .col-sm-6 .col-lg-4</div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-8 col-lg-10">.col-xs-6 .col-sm-8 .col-lg-10</div>
+  <div class="col-xs-6 col-sm-4 col-lg-2">.col-xs-6 .col-sm-4 .col-lg-2</div>
+</div>
+Bootstrap Grid Example: Small Devices
+Assume we have a simple layout with two columns. We want the columns to be split 25%/75% for small devices.
+Tip: Small devices are defined as having a screen width from 768 pixels to 991 pixels.
+For small devices we will use the .col-sm-* classes.
+We will add the following classes to our two columns:
+<div class="col-sm-3">....</div>
+<div class="col-sm-9">....</div>
+Now Bootstrap is going to say "at the small size, look for classes with -sm- in them and use those".
+The following example will result in a 25%/75% split on small (and medium and large) devices. On extra small devices, it will automatically stack (100%):
+col-sm-3
+col-sm-9
+Example
+<div class="container-fluid">
+  <h1>Hello World!</h1>
+  <div class="row">
+    <div class="col-sm-3" style="background-color:yellow;">
+      <p>Lorem ipsum...</p>
+    </div>
+    <div class="col-sm-9" style="background-color:pink;">
+      <p>Sed ut perspiciatis...</p>
+    </div>
+  </div>
+</div>
+Bootstrap Grid Example: Medium Devices
+In the previous chapter, we presented a grid example with classes for small devices. We used two divs (columns) and we gave them a 25%/75% split:
+<div class="col-sm-3">....</div>
+<div class="col-sm-9">....</div>
+But on medium devices the design may be better as a 50%/50% split.
+Tip: Medium devices are defined as having a screen width from 992 pixels to 1199 pixels.
+For medium devices we will use the .col-md-* classes.
+Now we will add the column widths for medium devices:
+<div class="col-sm-3 col-md-6">....</div>
+<div class="col-sm-9 col-md-6">....</div>
+Now Bootstrap is going to say "at the small size, look at classes with -sm- in them and use those. At the medium size, look at classes with -md- in them and use those".
+The following example will result in a 25%/75% split on small devices and a 50%/50% split on medium (and large) devices. On extra small devices, it will automatically stack (100%):
+Example
+<div class="container-fluid">
+  <h1>Hello World!</h1>
+  <div class="row">
+    <div class="col-sm-3 col-md-6" style="background-color:yellow;">
+      <p>Lorem ipsum...</p>
+    </div>
+    <div class="col-sm-9 col-md-6" style="background-color:pink;">
+      <p>Sed ut perspiciatis...</p>
+    </div>
+  </div>
+</div>
+Bootstrap Grid Example: Large Devices
+In the previous chapter, we presented a grid example with classes for small and medium devices. We used two divs (columns) and we gave them a 25%/75% split on small devices, and a 50%/50% split on medium devices:
+<div class="col-sm-3 col-md-6">....</div>
+<div class="col-sm-9 col-md-6">....</div>
+But on large devices the design may be better as a 33%/66% split.
+Tip: Large devices are defined as having a screen width from 1200 pixels and above.
+For large devices we will use the .col-lg-* classes.
+So now we will add the column widths for large devices:
+<div class="col-sm-3 col-md-6 col-lg-4">....</div>
+<div class="col-sm-9 col-md-6 col-lg-8">....</div>
+Now Bootstrap is going to say "at the small size, look at classes with -sm- in them and use those. At the medium size, look at classes with -md- in them and use those. At the large size, look at classes with the word -lg- in them and use those".
+The following example will result in a 25%/75% split on small devices, a 50%/50% split on medium devices, and a 33%/66% split on large devices:
+Example
+<div class="container-fluid">
+  <h1>Hello World!</h1>
+  <div class="row">
+    <div class="col-sm-3 col-md-6 col-lg-4" style="background-color:yellow;">
+      <p>Lorem ipsum...</p>
+    </div>
+    <div class="col-sm-9 col-md-6 col-lg-8" style="background-color:pink;">
+      <p>Sed ut perspiciatis...</p>
+    </div>
+  </div>
+</div>

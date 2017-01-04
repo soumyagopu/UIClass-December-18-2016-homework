@@ -1,0 +1,16 @@
+Media queries in CSS3 extend the CSS2 media types idea: Instead of looking for a type of device, they look at the capability of the device.
+Media queries can be used to check many things, such as:
+•	width and height of the viewport
+•	width and height of the device
+•	orientation (is the tablet/phone in landscape or portrait mode?)
+•	resolution
+Using media queries are a popular technique for delivering a tailored style sheet to tablets, iPhone, and Androids.
+Media Query Syntax
+A media query consists of a media type and can contain one or more expressions, which resolve to either true or false.
+@media not|only mediatype and (expressions) {
+    CSS-Code;
+}
+The result of the query is true if the specified media type matches the type of device the document is being displayed on and all expressions in the media query are true. When a media query is true, the corresponding style sheet or style rules are applied, following the normal cascading rules.
+Unless you use the not or only operators, the media type is optional and the all type will be implied.
+You can also have different stylesheets for different media:
+<link rel="stylesheet" media="mediatype and|not|only (expressions)" href="print.css">

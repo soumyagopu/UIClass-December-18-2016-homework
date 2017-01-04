@@ -1,0 +1,51 @@
+One way to use media queries is to have an alternate CSS section right inside your style sheet.
+The following example changes the background-color to lightgreen if the viewport is 480 pixels wide or wider (if the viewport is less than 480 pixels, the background-color will be pink):
+Example
+@media screen and (min-width: 480px) {
+    body {
+        background-color: lightgreen;
+    }
+}
+The following example shows a menu that will float to the left of the page if the viewport is 480 pixels wide or wider (if the viewport is less than 480 pixels, the menu will be on top of the content):
+@media screen and (min-width: 480px) {
+    #leftsidebar {width: 200px; float: left;}
+    #main {margin-left:216px;}
+}
+Width from 520 to 699px - Apply an email icon to each link
+When the browser's width is between 520 and 699px, we will apply an email icon to each email link:
+Example 2
+@media screen and (max-width: 699px) and (min-width: 520px) {
+    ul li a {
+        padding-left: 30px;
+        background: url(email-icon.png) left center no-repeat;
+    }
+}
+Width from 700 to 1000px - Preface the links with a text
+When the browser's width is between from 700 to 1000px, we will preface each email link with the text "Email: ":
+Example 3
+@media screen and (max-width: 1000px) and (min-width: 700px) {
+    ul li a:before {
+        content: "Email: ";
+        font-style: italic;
+        color: #666666;
+    }
+}
+The media attribute on the <link> element is used to specify the target media for an external style sheet within the HTML document.
+Example
+1.	<link rel="stylesheet" type="text/css" media="all" href="css/common.css">
+2.	<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css">
+3.	<link rel="stylesheet" type="text/css" media="print" href="css/print.css">
+
+In this example the media attribute instructs the browser to load an external style sheet "screen.css" and use its styles only for screen while "print.css" for printing purpose
+
+The value is a comma-separated list of entries. For example,
+media="screen, 3d-glasses, print and resolution > 90dpi"
+is mapped to:
+"screen"
+"3d-glasses"
+"print and resolution > 90dpi"
+
+The ‘px’ unit does not apply to ‘speech’ devices so the following media query is always false:
+<link rel="stylesheet" media="speech and (min-device-width: 800px)" href="example.css" />
+Note that the media queries in this example would have been true if the keyword ‘not’ had been added to the beginning of the media query.
+
