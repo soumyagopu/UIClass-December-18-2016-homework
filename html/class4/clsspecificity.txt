@@ -1,0 +1,12 @@
+If you have two (or more) conflicting CSS rules that point to the same element, there are some basic rules that a browser follows to determine which one is most specific and therefore wins out.
+
+More Specific = Greater Precedence
+If the selectors are the same then the last one will always take precedence. For example, if you had:
+p { color: red }
+p { color: blue }
+The text in the box of p elements would be colored blue because that rule came last.
+However, you won’t usually have identical selectors with conflicting declarations on purpose (because there’s not much point). Conflicts quite legitimately come up, though, when you have nested selectors.
+
+div p { color: red }
+p { color: blue }
+In this example it might seem that a p within a div would be colored blue, seeing as a rule to color p boxes blue comes last, but they would actually be colored red due to the specificity of the first selector. Basically, the more specific a selector, the more preference it will be given when it comes to conflicting styles.

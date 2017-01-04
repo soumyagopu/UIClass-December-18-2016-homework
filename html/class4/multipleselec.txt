@@ -1,0 +1,45 @@
+1.	Specificity determines, which CSS rule is applied by the browsers.
+2.	Specificity is usually the reason why your CSS-rules don’t apply to some elements, although you think they should.
+3.	Every selector has its place in the specificity hierarchy.
+4.	If two selectors apply to the same element, the one with higher specificity wins.
+5.	There are four distinct categories which define the specificity level of a given selector: inline styles, IDs, classes, attributes, and elements.
+6.	You can understand specificity if you love Star Wars: CSS Specificity Wars.
+7.	You can understand specificity if you love poker: CSS Specificity for Poker Players
+8.	When selectors have an equal specificity value, the latest rule is the one that counts.
+9.	When selectors have an unequal specificity value, the more specific rule is the one that counts.
+10.	Rules with more specific selectors have a greater specificity.
+11.	The last rule defined overrides any previous, conflicting rules.
+12.	The embedded style sheet has a greater specificity than other rules.
+13.	ID selectors have a higher specificity than attribute selectors.
+14.	You should always try to use IDs to increase the specificity.
+15.	A class selector beats any number of element selectors.
+16.	The universal selector and inherited selectors have a specificity of 0, 0, 0, 0.
+17.	You can calculate CSS specificity with CSS Specificity Calculator.
+What is Specificity? Link
+If two selectors apply to the same element, the one with higher specificity wins.
+
+Specificity Rules 
+ID selectors have a higher specificity than attribute selectors. For example, in HTML, the selector #p123 is more specific than [id=p123] in terms of the cascade. Example: in
+A:
+a#a-02 { background-image : url(n.gif); }
+
+and
+
+B:
+a[id="a-02"] { background-image : url(n.png); }
+the first rule (A) is more specific than the second one (B). [W3C CSS 2.1 Specification]
+Contextual selectors are more specific than a single element selector. It also holds for other selectors involving more than one HTML element selector. [Cascade Inheritance]
+The embedded style sheet is closer to the element to be styled. So in the following situation
+CSS:
+#content h1 {
+padding: 5px;
+}
+(X)HTML:
+<style type="text/css">
+#content h1 {
+padding: 10px;
+}
+</style>
+
+
+

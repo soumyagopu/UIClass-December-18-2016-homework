@@ -1,0 +1,7 @@
+The child selector selects all elements that are the immediate children of a specified element.
+The following example selects all <p> elements that are immediate children of a <div> element:
+Example
+
+div > p {
+    background-color: yellow;
+}

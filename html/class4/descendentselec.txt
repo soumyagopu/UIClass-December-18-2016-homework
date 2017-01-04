@@ -1,0 +1,10 @@
+The descendant selector matches all elements that are descendants of a specified element.
+The following example selects all <p> elements inside <div> elements: 
+
+Example
+
+div p {
+
+    background-color: yellow;
+
+}
