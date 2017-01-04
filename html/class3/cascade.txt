@@ -1,0 +1,2 @@
+"Cascading" means that styles can fall (or cascade) from one style sheet to another, enabling multiple style sheets to be used on one HTML document.
+Cascading Style Sheets or CSS are set up so that you can have many properties all affecting the same element. Some of those properties may conflict with one another. For example, you might set a font color of red on the paragraph tag and then later on set a font color of blue. How does the browser know which color to make the paragraphs? This is decided by the cascade.

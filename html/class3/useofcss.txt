@@ -1,0 +1,1 @@
+Use CSS to define styles for your documents, including the design, layout and variations in display for different devices and screen sizes. You can place your CSSin the <head> of a document with an embedded style sheet, or attach a separate file that defines your styles with an external style sheet.
