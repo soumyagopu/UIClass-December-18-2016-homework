@@ -1,0 +1,62 @@
+Bootstrap Buttons
+Bootstrap provides seven styles of buttons:
+Default
+Primary
+Success
+Info
+Warning
+Danger
+Link
+To achieve the button styles above, Bootstrap has the following classes:
+•	.btn-default
+•	.btn-primary
+•	.btn-success
+•	.btn-info
+•	.btn-warning
+•	.btn-danger
+•	.btn-link
+•	The following example shows the code for the different button styles:
+•	Example
+•	<button type="button" class="btn btn-default">Default</button>
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-link">Link</button>
+•	The button classes can be used on an <a>, <button>, or <input> element:
+•	Example
+•	<a href="#" class="btn btn-info" role="button">Link Button</a>
+<button type="button" class="btn btn-info">Button</button>
+<input type="button" class="btn btn-info" value="Input Button">
+<input type="submit" class="btn btn-info" value="Submit Button">
+Button Sizes
+Bootstrap provides four button sizes:
+Large
+Medium
+Small
+XSmall
+The classes that define the different sizes are:
+•	.btn-lg
+•	.btn-md
+•	.btn-sm
+•	.btn-xs
+The following example shows the code for different button sizes:
+Example
+<button type="button" class="btn btn-primary btn-lg">Large</button>
+<button type="button" class="btn btn-primary btn-md">Medium</button>
+<button type="button" class="btn btn-primary btn-sm">Small</button>
+<button type="button" class="btn btn-primary btn-xs">XSmall</button>
+Block Level Buttons
+A block level button spans the entire width of the parent element.
+Button 1 Button 2
+Add class .btn-block to create a block level button:
+Example
+<button type="button" class="btn btn-primary btn-block">Button 1</button>
+Active/Disabled Buttons
+A button can be set to an active (appear pressed) or a disabled (unclickable) state:
+Active Primary Disabled Primary
+The class .active makes a button appear pressed, and the class .disabled makes a button unclickable:
+Example
+<button type="button" class="btn btn-primary active">Active Primary</button>
+<button type="button" class="btn btn-primary disabled">Disabled Primary</button>

@@ -1,0 +1,45 @@
+This is a library of monochromatic icons available in raster image formats, vector image formats, and as fonts. It provides over 250 glyphs in font format. You can use these fonts in your web projects. These glyphs are not free, however if you don't have to spend anything in case you are using them in Bootstrap based projects.
+Loading the Font (library)
+To load the Bootstrap Glyphicons library, copy and paste the following line in the <head> section of the webpage.
+<head>
+   <link rel = "stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+Using the Icon
+Bootstrap Glyphicons provides a number of icons. Choose one of them and add the name of the icon class to any HTML element within the < body > tag. In the following example, we have used the icon of the tree and its class name is tree-deciduous.
+<html>
+   <head>
+      <link rel = "stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+   </head>
+	
+   <body>
+      <i class = "glyphicon glyphicon-tree-deciduous">  </i>
+   </body>
+</html>
+Defining the Size
+You can increase or decrease the size of an icon by defining its size in the CSS and using it along with the class name as shown below. In the following example, we have defined the size as 6 em.
+<html>
+   <head>
+      <link rel = "stylesheet" href = <link rel = "stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+      i.mysize {font-size: 6em;}
+   </head>
+	
+   <body>
+      <i class = "glyphicon glyphicon-tree-deciduous mysize"></i>
+   </body>
+	
+</html>
+
+Defining the Color
+You can define the color of an icon using the CSS. The following example example shows how to change the color of the tree icon.
+<html>
+   <head>
+      <link rel = "stylesheet" href = <link rel = "stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+      i.custom {font-size: 6em; color: blue;}
+   </head>
+	
+   <body>
+      <i class = "glyphicon glyphicon-tree-deciduous custom"></i>
+   </body>
+	
+</html>
+he following table contains the usage and results of Bootstrap Glyphicons (Components). Replace the < body > tag of the above program with the code given in the table to get the respective outputs −

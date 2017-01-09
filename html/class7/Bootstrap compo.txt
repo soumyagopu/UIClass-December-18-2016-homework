@@ -1,0 +1,90 @@
+Bootstrap Jumbotron
+
+A Bootstrap jumbotron specifies a big box for getting extra attention to some special content or information. It is displayed as a grey box with rounded corners. It can also enlarge the font sizes of the text inside it.
+You can put any valid HTML or other Bootstrap elements/ classes inside a jumbotron.
+The class .jumbotron within the <div> element is used to create a jumbotron.
+
+Jumbotron Inside Container
+
+The Inside container is used in jumbotron, if you want the jumbotron to not extend to the edge of the screen.
+Put the jumbotron inside the <div class="container">.
+
+
+Bootstrap Images
+
+Bootstrap supports for images. There are three classes in Bootstrap that can be used to apply some simple style to the images.
+The following classes add style to the images:
+Classes	Uses
+.img-rounded	It adds border-radius:6px to give the image rounded corners.
+.img-circle	It makes the entire image round by adding border-radius:500px.
+.img-thumbnail	It adds a bit of padding and a gray border.
+
+
+Bootstrap Wells
+
+In Bootstrap, wells are used to add a rounded border around an element with a gray background color and some padding. It is like a container that displays the content.
+The class .well is used with <div> element to add well.
+
+Bootstrap Panels
+
+In Bootstrap, a panel is a bordered box with some padding around its element. The panel components are used when you want to put your DOM component in a box.
+The class .panel is used within the <div> element to create Bootstrap panels. The content inside the panel has a .panel-body class.
+Generally a panel contains three parts:
+o	Panel header
+o	Panel content
+o	Panel footer
+
+
+Bootstrap Alerts
+
+Bootstrap Alerts are used to provide an easy way to create predefined alert messages. Alert adds a style to your messages to make it more appealing to the users.
+There are four classes that are used within <div> element for alerts.
+o	.alert-success
+o	.alert-info
+o	.alert-warning
+o	.alert-danger
+
+Bootstrap Badges and Labels
+
+Bootstrap Badges
+
+Bootstrap Badges are numerical indicators used to show that how many items are associated with the specific link. Badges are used to highlight new or unread items.
+The class .badge within the <span> element is used to create badges.
+
+
+Bootstrap Labels
+
+Bootstrap labels are used to specify the additional information about something like offering counts, tips, or other makeup for pages.
+The class .label is used to display the labels.
+
+
+Bootstrap List Groups
+
+Bootstrap list group is used to create a group of list with list items. The most basic list group is an unordered list containing list items.
+The class ".list-group" within the <ul> element and the class ".list-group-item" within the <li>element are used to create a basic list group.
+
+
+Bootstrap Pagination
+
+Pagination is used to sort the web pages of your website in an organized manner. It becomes very necessary if your website has a lot of web pages.
+Following is a list of classes that Bootstrap provides to handle pagination.
+Table:
+Class	Description
+.pagination	Add this class to get the pagination on your page.
+.disabled,
+.active	you can customize links by using .disabled for unclickable links and .active to indicate the current page.
+.pagination-lg,
+.pagination-sm	use these classes to get different size items.
+
+
+Bootstrap Tabs
+
+You can create a basic navigation tag with <ul class="nav nav-tabs">. You can also mark the current page with <li class="active">.
+
+Bootstrap Pills
+
+You can create pills with <ul class="nav nav-pills">. You can also mark the current page with <li class="active">.
+
+
+
+
