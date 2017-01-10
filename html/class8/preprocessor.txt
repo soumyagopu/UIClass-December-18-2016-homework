@@ -1,0 +1,17 @@
+A preprocessor is a program that takes one type of data and converts it to another type of data. In the case of HTML and CSS, some of the more popular preprocessor languages include Haml and Sass. Haml is processed into HTML and Sass is processed into CSS.
+Upon setting out to solve some of the more common problems, Haml and Sass found many additional ways to empower HTML and CSS, not only by removing the inefficiencies but also in creating ways to make building websites easier and more logical. The popularity of preprocessors have also brought along different frameworks to support them, one of the more popular being Compass.
+
+Benefits of using preprocessor:-
+
+. It adds the stuff that should have been in CSS in the first place.
+ It will make your CSS dry.
+DRY as in Don't repeat yourself 
+ It will save you time
+ It will make your code easier to maintain.
+It will make your CSS more organized.
+ It's easy to set up.
+ It will make your websites prettier.
+ It's easier to write than you think.
+Frameworks that supercharge your CSS.
+
+

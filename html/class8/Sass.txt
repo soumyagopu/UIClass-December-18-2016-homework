@@ -1,0 +1,12 @@
+Sass (Syntactically Awesome StyleSheets) is an extension of CSS. Sass allows you to use things like variables, nested rules, inline imports and more. It also helps to keep things organized and allows you to create stylesheets faster.
+The only requirement for using Sass is that you must have Ruby installed
+Syntax
+Sass includes two syntax options:
+•	SCSS (Sassy CSS): Uses the .scss file extension and is fully compliant with CSS syntax.
+•	Indented (simply called 'Sass'): Uses .sass file extension and uses indentation rather than brackets; it is not fully compliant with CSS syntax, but it's quicker to write.
+Note: Files can be converted from one syntax to the other using the sass-convert command.
+Sass is a great way to quickly create and organize your CSS.
+CSS on its own can be fun, but stylesheets are getting larger, more complex, and harder to maintain. This is where a preprocessor can help. Sass lets you use features that don't exist in CSS yet like variables, nesting, mixins, inheritance and other nifty goodies that make writing CSS fun again.
+Once you start tinkering with Sass, it will take your preprocessed Sass file and save it as a normal CSS file that you can use in your web site.
+The most direct way to make this happen is in your terminal. Once Sass is installed, you can run sass input.scss output.css from your terminal. You can watch either individual files or entire directories. In addition, you can watch folders or directories with the --watch flag. An example of running Sass while watching an entire directory is the following:
+sass --watch app/sass:public/stylesheets
