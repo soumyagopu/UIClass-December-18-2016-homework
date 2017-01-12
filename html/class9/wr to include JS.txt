@@ -1,0 +1,14 @@
+In HTML, JavaScript code must be inserted between <script> and </script> tags.
+
+Example
+
+<script>
+document.getElementById("demo").innerHTML = "My First JavaScript";
+</script>
+JavaScript is a powerful scripting language, which comes in really handy for adding interactive content to your web page.
+Within a browser, JavaScript doesn't do anything by itself. You run JavaScript from inside your HTML webpages. To call JavaScript code from within HTML, you need the <script> element. There are two ways to use script, depending on whether you're linking to an external script or embedding a script right in your webpage.
+
+JavaScript is a programming language mostly used client-side to make webpages interactive. You can create amazing webpages without JavaScript, but JavaScript opens up a whole new level of possibilities.
+Linking an external script
+Usually, you'll be writing scripts in their own .js files. If you want to execute a .js script from your webpage, just use <script> with an src attribute pointing to the script file, using its URL:
+<script src="path/to/my/script.js"></script

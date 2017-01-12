@@ -1,0 +1,28 @@
+some differences between the two languages:
+•	Java is a statically typed language; JavaScript is dynamic.
+•	Java is class-based; JavaScript is prototype-based.
+•	Java constructors are special functions that can only be called at object creation; JavaScript "constructors" are just standard functions.
+•	Java requires all non-block statements to end with a semicolon; JavaScript inserts semicolons at the ends of certain lines.
+•	Java uses block-based scoping; JavaScript uses function-based scoping.
+•	Java has an implicit this scope for non-static methods, and implicit class scope; JavaScript has implicit global scope.
+
+•	JavaScript supports closures; Java can simulate sort-of "closures" using anonymous classes. (Real closures may be supported in a future version of Java.)
+•	All JavaScript functions are variadic; Java functions are only variadic if explicitly marked.
+•	JavaScript prototypes can be redefined at runtime, and has immediate effect for all referring objects. Java classes cannot be redefined in a way that affects any existing object instances.
+•	JavaScript allows methods in an object to be redefined independently of its prototype (think eigenclasses in Ruby, but on steroids); methods in a Java object are tied to its class, and cannot be redefined at runtime.
+
+
+JavaScript is a client side scripting language for HTML, developed by Netscape, Inc, while Java is a programming language, developed by Sun Microsystems.
+
+While in today's world calling JavaScript just a client side scripting language would not be good, as its now been used in servers also using node.js and people are doing object oriented development in JavaScript.
+1) Execution Environment
+First difference between Java and JavaScript is that Java is compiled + interpreted language, Java code is fist compiled into class files containing byte code and than executed by JVM, on the other hand JavaScript code is directly executed by browser. 
+2) Static vs Dynamic Typed language
+Another key difference between JavaScript and Java is that, JavaScript is a dynamic typed language, while Java is a statically typed language. Which means, variables are declared with type at compile time, and can only accept values permitted for that type, other hand variables are declared using vary keyword in JavaScript, and can accept different kinds of value e.g. String, numeric and boolean etc. When one variable or value is compared to other using == operator, JavaScript performs type coercion. Though it also provides === operator to perform strict equality check, which checks for type as well. See here for more differences between == and == operator in JavaScript.
+
+3) OOP
+Java is an Object Oriented Programming language, and though JavaScript also supports class and object, it's more like an object oriented  scripting language.
+
+4) Right Once Run Anywhere
+Java uses byte code to achieve platform independence, JavaScript directly runs on browser, but code written in JavaScript is subject to browser compatibility issue i.e. certain code which work in Mozilla Firefox, may not work in Internet Explorer 7 or 8. This is because of browse based implementation of JavaScript. 
+

@@ -1,0 +1,12 @@
+JavaScript is most commonly used as a client side scripting language. This means that JavaScript code is written into an HTML page. When a user requests an HTMLpage with JavaScript in it, the script is sent to the browser and it's up to the browser to do something with it. 
+The main use of Javascript is that it allows you to make things happen in the user's browser without sending messages back and forth to the server.
+It's a scripting language that can be used to build dynamic pages but most importantly, it shifts some of the computational effort of running these applications from the server to the client machine.
+•	JavaScript is very easy to implement. All you need to do is put your code in the HTML document and tell the browser that it is JavaScript.
+•	JavaScript works on web users’ computers — even when they are offline!
+•	JavaScript allows you to create highly responsive interfaces that improve the user experience and provide dynamic functionality, without having to wait for the server to react and show another page.
+•	JavaScript can load content into the document if and when the user needs it, without reloading the entire page — this is commonly referred to as Ajax.
+•	JavaScript can test for what is possible in your browser and react accordingly — this is called Principles of unobtrusive JavaScript or sometimes defensive scripting.
+•	JavaScript can help fix browser problems or patch holes in browser support — for example fixing CSS layout issues in certain browsers.
+That is a lot for a language that until recently was laughed at by programmers favouring “higher programming languages”. One part of the renaissance of JavaScript is that we are building more and more complex web applications these days, and high interactivity either requires Flash (or other plugins) or scripting. JavaScript is arguably the best way to go, as it is a web standard, it is supported natively across browsers , and it is compatible with other open web standards.
+
+
