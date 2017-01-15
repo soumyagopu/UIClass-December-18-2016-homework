@@ -1,0 +1,48 @@
+Loops can execute a block of code a number of times.
+Different Kinds of Loops
+JavaScript supports different kinds of loops:
+•	for - loops through a block of code a number of times
+•	for/in - loops through the properties of an object
+•	while - loops through a block of code while a specified condition is true
+•	do/while - also loops through a block of code while a specified condition is true
+The For Loop
+The for loop is often the tool you will use when you want to create a loop.
+The for loop has the following syntax:
+for (statement 1; statement 2; statement 3) {
+    code block to be executed
+}
+Statement 1 is executed before the loop (the code block) starts.
+Statement 2 defines the condition for running the loop (the code block).
+Statement 3 is executed each time after the loop (the code block) has been executed.
+for (i = 0; i < 5; i++) {
+    text += "The number is " + i + "<br>";
+}
+Loops can execute a block of code as long as a specified condition is true.
+The While Loop
+The while loop loops through a block of code as long as a specified condition is true.
+Syntax
+while (condition) {
+    code block to be executed
+}
+Example
+In the following example, the code in the loop will run, over and over again, as long as a variable (i) is less than 10:
+Example
+while (i < 10) {
+    text += "The number is " + i;
+    i++;
+}
+The Do/While Loop
+The do/while loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true.
+Syntax
+do {
+    code block to be executed
+}
+while (condition);
+Example
+The example below uses a do/while loop. The loop will always be executed at least once, even if the condition is false, because the code block is executed before the condition is tested:
+Example
+do {
+    text += "The number is " + i;
+    i++;
+}
+while (i < 10);

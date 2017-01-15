@@ -1,0 +1,8 @@
+The Increment and Decrement Operators in JavaScript are used to increase or decrease the value by 1. For instance, Incremental operator ++ is used to increase the existing variable value by 1 (x = x + 1) and decrement operator – – is used to decrease or subtract the existing value by 1 (x = x – 1)
+	Increment Operator : ++x or x++
+	Decrement Operator: –x or x–
+When ++ or — is used before operand like: ++x, –x then we called it as prefix, if ++ or — is used after the operand like: x++ or x– then we called it as postfix. Let’s explore the prefix and postfix
+1.	++i (Pre increment): It will increment the value of i even before assigning it to the variable i.
+2.	i++ (Post-increment): The operator will return the variable value first (i.e, i value) then only i value is incremented by 1.
+3.	–i (Pre decrement): It will decrement the value of i even before assigning it to the variable i.
+4.	i– (Post decrement): The operator will return the variable value first (i.e, i value) then only i value is decrements by 1.
