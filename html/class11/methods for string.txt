@@ -1,0 +1,913 @@
+All Methods For String:-
+The String global object is a constructor for strings, or a sequence of characters.
+Syntax
+String literals take the forms:
+'string text'
+"string text"
+Strings can also be created using the String global object directly:
+String(thing)
+Parameters
+thing
+Anything to be converted to a string.
+Template literals
+Starting with ECMAScript 2015, string literals can also be so-called Template literals:
+`hello world`
+`hello!
+ world!`
+`hello ${who}`
+escape `<a>${who}</a>`
+Description
+Strings are useful for holding data that can be represented in text form. Some of the most-used operations on strings are to check their length, to build and concatenate them using the + and += string operators, checking for the existence or location of substrings with the indexOf() method, or extracting substrings with the substring() method.
+
+Methods:-
+1)The static String.fromCharCode() method returns a string created by using the specified sequence of Unicode values.
+Syntax
+String.fromCharCode(num1[, ...[, numN]])
+Parameters
+num1, ..., numN
+A sequence of numbers that are Unicode values.
+Return value
+A string containing the characters corresponding to the sequence of Unicode values.
+Description
+This method returns a string and not a String object.
+Because fromCharCode() is a static method of String, you always use it as String.fromCharCode(), rather than as a method of a String object you created.
+Examples
+Using fromCharCode()
+The following example returns the string "ABC".
+String.fromCharCode(65, 66, 67);  // "ABC"
+
+
+2) The static String.fromCodePoint() method returns a string created by using the specified sequence of code points.
+Syntax
+String.fromCodePoint(num1[, ...[, numN]])
+Parameters
+num1, ..., numN
+A sequence of code points.
+Return value
+A string created by using the specified sequence of code points.
+Exceptions
+•	A RangeError is thrown if an invalid Unicode code point is given (e.g. "RangeError: NaN is not a valid code point").
+Description
+Because fromCodePoint() is a static method of String, you always use it as String.fromCodePoint(), rather than as a method of a String object you created.
+Examples
+Using fromCodePoint()
+String.fromCodePoint(42);       // "*"
+String.fromCodePoint(65, 90);   // "AZ"
+String.fromCodePoint(0x404);    // "\u0404"
+String.fromCodePoint(0x2F804);  // "\uD87E\uDC04"
+String.fromCodePoint(194564);   // "\uD87E\uDC04"
+String.fromCodePoint(0x1D306, 0x61, 0x1D307) // "\uD834\uDF06a\uD834\uDF07"
+
+String.fromCodePoint('_');      // RangeError
+String.fromCodePoint(Infinity); // RangeError
+String.fromCodePoint(-1);       // RangeError
+String.fromCodePoint(3.14);     // RangeError
+String.fromCodePoint(3e-2);     // RangeError
+String.fromCodePoint(NaN);      // RangeError
+
+
+3) The anchor() method creates an <a> HTML anchor element that is used as a hypertext target.
+Syntax
+str.anchor(name)
+Parameters
+name
+A string representing the name attribute of the a tag to be created.
+Return value
+A string containing an <a> HTML element.
+Description
+Use the anchor() method to programmatically create and display an anchor in a document.
+In the syntax, the text string represents the literal text that you want the user to see. The nameparameter string represents the name attribute of the <a> element.
+Anchors created with the anchor() method become elements in the document.anchors array.
+Examples
+Using anchor()
+var myString = 'Table of Contents';
+
+document.body.innerHTML = myString.anchor('contents_anchor');
+will output the following HTML:
+<a name="contents_anchor">Table of Contents</a>
+
+
+
+4) The charAt() method returns the specified character from a string.
+Syntax
+str.charAt(index)
+Parameters
+index
+An integer between 0 and 1-less-than the length of the string. If no index is provided, charAt() will use 0.
+Return value
+A string representing the character at the specified index; empty string if index is out of range.
+Description
+Characters in a string are indexed from left to right. The index of the first character is 0, and the index of the last character in a string called stringName is stringName.length - 1. If the index you supply is out of range, JavaScript returns an empty string.
+If no index is provided to .charAt(), 0 will be used as default.
+Examples
+Displaying characters at different locations in a string
+The following example displays characters at different locations in the string "Brave new world":
+var anyString = 'Brave new world';
+console.log("The character at index 0   is '" + anyString.charAt()   + "'"); 
+// No index was provided, used 0 as default
+
+console.log("The character at index 0   is '" + anyString.charAt(0)   + "'");
+console.log("The character at index 1   is '" + anyString.charAt(1)   + "'");
+console.log("The character at index 2   is '" + anyString.charAt(2)   + "'");
+console.log("The character at index 3   is '" + anyString.charAt(3)   + "'");
+console.log("The character at index 4   is '" + anyString.charAt(4)   + "'");
+console.log("The character at index 999 is '" + anyString.charAt(999) + "'");
+These lines display the following:
+The character at index 0   is 'B'
+The character at index 0   is 'B'
+The character at index 1   is 'r'
+The character at index 2   is 'a'
+The character at index 3   is 'v'
+The character at index 4   is 'e'
+The character at index 999 is ''
+
+
+5) The charCodeAt() method returns an integer between 0 and 65535 representing the UTF-16 code unit at the given index (the UTF-16 code unit matches the Unicode code point for code points representable in a single UTF-16 code unit, but might also be the first code unit of a surrogate pair for code points not representable in a single UTF-16 code unit, e.g. Unicode code points > 0x10000). If you want the entire code point value, use codePointAt().
+Syntax
+str.charCodeAt(index)
+Parameters
+index
+An integer greater than or equal to 0 and less than the length of the string; if it is not a number, it defaults to 0.
+Return value
+A number representing the UTF-16 code unit value of the character at the given index; NaN if index is out of range.
+Description
+Unicode code points range from 0 to 1114111 (0x10FFFF). The first 128 Unicode code points are a direct match of the ASCII character encoding. For information on Unicode, see the JavaScript Guide.
+Note that charCodeAt() will always return a value that is less than 65536. This is because the higher code points are represented by a pair of (lower valued) "surrogate" pseudo-characters which are used to comprise the real character. Because of this, in order to examine or reproduce the full character for individual characters of value 65536 and above, for such characters, it is necessary to retrieve not only charCodeAt(i), but also charCodeAt(i+1) (as if examining/reproducing a string with two letters), or to use codePointAt(i) instead. See example 2 and 3 below.
+charCodeAt() returns NaN if the given index is less than 0 or is equal to or greater than the length of the string.
+Backward compatibility: In historic versions (like JavaScript 1.2) the charCodeAt() method returns a number indicating the ISO-Latin-1 codeset value of the character at the given index. The ISO-Latin-1 codeset ranges from 0 to 255. The first 0 to 127 are a direct match of the ASCII character set.
+Examples
+Using charCodeAt()
+The following example returns 65, the Unicode value for A.
+'ABC'.charCodeAt(0); // returns 65
+
+
+6) The codePointAt() method returns a non-negative integer that is the Unicode code point value.
+Syntax
+str.codePointAt(pos)
+Parameters
+pos
+Position of an element in the String to return the code point value from.
+Return value
+A number representing the code unit value of the character at the given index; undefined if there is no element at pos.
+Description
+If there is no element at the specified position, undefined is returned. If no UTF-16 surrogate pair begins at pos, the code unit at pos is returned.
+Examples
+Using codePointAt()
+'ABC'.codePointAt(1);          // 66
+'\uD800\uDC00'.codePointAt(0); // 65536
+
+'XYZ'.codePointAt(42); // undefined
+
+
+7) The concat() method combines the text of one or more strings and returns a new string.
+Syntax
+str.concat(string2[, string3, ..., stringN])
+Parameters
+string2...stringN
+Strings to concatenate to this string.
+Return value
+A new string containing the combined text of the strings provided.
+Description
+The concat() function combines the text from one or more strings and returns a new string. Changes to the text in one string do not affect the other string.
+Examples
+Using concat()
+The following example combines strings into a new string.
+var hello = 'Hello, ';
+console.log(hello.concat('Kevin', ' have a nice day.'));
+
+/* Hello, Kevin have a nice day. */
+Performance
+It is strongly recommended that assignment operators (+, +=) are used instead of the concat() method. 
+
+
+8) The endsWith() method determines whether a string ends with the characters of another string, returning true or false as appropriate.
+Syntax
+str.endsWith(searchString[, position])
+Parameters
+searchString
+The characters to be searched for at the end of this string.
+position
+Optional. Search within this string as if this string were only this long; defaults to this string's actual length, clamped within the range established by this string's length.
+Return value
+true if the string ends with the characters of the search string; otherwise, false.
+Description
+This method lets you determine whether or not a string ends with another string. This method is case-sensitive.
+Examples
+Using endsWith()
+var str = 'To be, or not to be, that is the question.';
+
+console.log(str.endsWith('question.')); // true
+console.log(str.endsWith('to be'));     // false
+console.log(str.endsWith('to be', 19)); // true
+
+
+9) The includes() method determines whether one string may be found within another string, returning true or false as appropriate.
+Syntax
+str.includes(searchString[, position])
+Parameters
+searchString
+A string to be searched for within this string.
+position
+Optional. The position in this string at which to begin searching for searchString; defaults to 0.
+Return value
+true if the string contains the search string; otherwise, false.
+Description
+This method lets you determine whether or not a string includes another string.
+Case-sensitivity
+The includes() method is case sensitive. For example, the following expression returns false:
+'Blue Whale'.includes('blue'); // returns false
+Examples
+Using includes()
+var str = 'To be, or not to be, that is the question.';
+
+console.log(str.includes('To be'));       // true
+console.log(str.includes('question'));    // true
+console.log(str.includes('nonexistent')); // false
+console.log(str.includes('To be', 1));    // false
+console.log(str.includes('TO BE'));       // false
+
+
+
+10) The indexOf() method returns the index within the calling String object of the first occurrence of the specified value, starting the search at fromIndex. Returns -1 if the value is not found.
+Syntax
+str.indexOf(searchValue[, fromIndex])
+Parameters
+searchValue
+A string representing the value to search for.
+fromIndex Optional
+The index at which to start the searching forwards in the string. It can be any integer. The default value is 0. If fromIndex <= 0 the entire string is searched. If fromIndex >= str.length, the string is not searched and -1 is returned. Unless searchValue is an empty string, then str.length is returned.
+Return value
+The index of the first occurrence of the specified value; -1 if not found.
+Description
+Characters in a string are indexed from left to right. The index of the first character is 0, and the index of the last character of a string called stringName is stringName.length - 1.
+'Blue Whale'.indexOf('Blue');     // returns  0
+'Blue Whale'.indexOf('Blute');    // returns -1
+'Blue Whale'.indexOf('Whale', 0); // returns  5
+'Blue Whale'.indexOf('Whale', 5); // returns  5
+'Blue Whale'.indexOf('');         // returns  0
+'Blue Whale'.indexOf('', 9);      // returns  9
+'Blue Whale'.indexOf('', 10);     // returns 10
+'Blue Whale'.indexOf('', 11);     // returns 10
+Case-sensitivity
+The indexOf() method is case sensitive. For example, the following expression returns -1:
+'Blue Whale'.indexOf('blue'); // returns -1
+Checking occurrences
+Note that '0' doesn't evaluate to true and '-1' doesn't evaluate to false. Therefore, when checking if a specific string exists within another string the correct way to check would be:
+'Blue Whale'.indexOf('Blue') !== -1; // true
+'Blue Whale'.indexOf('Bloe') !== -1; // false
+Examples
+Using indexOf() and lastIndexOf()
+The following example uses indexOf() and lastIndexOf() to locate values in the string "Brave new world".
+var anyString = 'Brave new world';
+
+console.log('The index of the first w from the beginning is ' + anyString.indexOf('w'));
+// logs 8
+console.log('The index of the last w from the beginning is ' + anyString.lastIndexOf('w'));
+// logs 10
+
+console.log('The index of "new" from the beginning is ' + anyString.indexOf('new'));
+// logs 6
+console.log('The index of "new" from the end is ' + anyString.lastIndexOf('new'));
+// logs 6
+indexOf() and case-sensitivity
+The following example defines two string variables. The variables contain the same string except that the second string contains uppercase letters. The first console.log() method displays 19. But because the indexOf() method is case sensitive, the string "cheddar" is not found in myCapString, so the second console.log() method displays -1.
+var myString    = 'brie, pepper jack, cheddar';
+var myCapString = 'Brie, Pepper Jack, Cheddar';
+
+console.log('myString.indexOf("cheddar") is ' + myString.indexOf('cheddar'));
+// logs 19
+console.log('myCapString.indexOf("cheddar") is ' + myCapString.indexOf('cheddar'));
+// logs -1
+Using indexOf() to count occurrences of a letter in a string
+The following example sets count to the number of occurrences of the letter e in the string str:
+var str = 'To be, or not to be, that is the question.';
+var count = 0;
+var pos = str.indexOf('e');
+
+while (pos !== -1) {
+  count++;
+  pos = str.indexOf('e', pos + 1);
+}
+
+console.log(count); // displays 4
+
+
+11) The lastIndexOf() method returns the index within the calling String object of the last occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the value is not found.
+Syntax
+str.lastIndexOf(searchValue[, fromIndex])
+Parameters
+searchValue
+A string representing the value to search for. If searchValue is an empty string, then fromIndex is returned.
+fromIndex Optional
+The index at which to start searching backwards in the string. Starting with this index, the left part of the string will be searched. It can be any integer. The default value is +Infinity. If fromIndex >= str.length, the whole string is searched. If fromIndex < 0,  the behavior will be the same as if it would be 0.
+Return value
+The index of the last occurrence of the specified value; -1 if not found.
+Description
+Characters in a string are indexed from left to right. The index of the first character is 0, and the index of the last character is str.length - 1.
+'canal'.lastIndexOf('a');     // returns 3
+'canal'.lastIndexOf('a', 2);  // returns 1
+'canal'.lastIndexOf('a', 0);  // returns -1
+'canal'.lastIndexOf('x');     // returns -1
+'canal'.lastIndexOf('c', -5); // returns 0
+'canal'.lastIndexOf('c', 0);  // returns 0
+'canal'.lastIndexOf('');      // returns 5
+'canal'.lastIndexOf('', 2);   // returns 2
+Case-sensitivity
+The lastIndexOf() method is case sensitive. For example, the following expression returns -1:
+'Blue Whale, Killer Whale'.lastIndexOf('blue'); // returns -1
+Examples
+Using indexOf() and lastIndexOf()
+The following example uses indexOf() and lastIndexOf() to locate values in the string "Brave new world".
+var anyString = 'Brave new world';
+
+console.log('The index of the first w from the beginning is ' + anyString.indexOf('w'));
+// logs 8
+console.log('The index of the first w from the end is ' + anyString.lastIndexOf('w')); 
+// logs 10
+console.log('The index of "new" from the beginning is ' + anyString.indexOf('new'));
+// logs 6
+console.log('The index of "new" from the end is ' + anyString.lastIndexOf('new'));
+// logs 6
+
+
+
+12) The link() method creates a string representing the code for an <a> HTML element to be used as a hypertext link to another URL.
+Syntax
+str.link(url)
+Parameters
+url
+Any string that specifies the href attribute of the <a> tag; it should be a valid URL (relative or absolute), with any & characters escaped as &amp;, and any " characters escaped as &quot;.
+Return value
+A string containing an <a> HTML element.
+Description
+Use the link() method to create an HTML snippet for a hypertext link. The returned string can then be added to the document via document.write() or element.innerHTML.
+Links created with the link() method become elements in the links array of the document object. See document.links.
+Examples
+Using link()
+The following example displays the word "MDN" as a hypertext link that returns the user to the Mozilla Developer Network.
+var hotText = 'MDN';
+var URL = 'https://developer.mozilla.org/';
+
+console.log('Click to return to ' + hotText.link(URL));
+// Click to return to <a href="https://developer.mozilla.org/">MDN</a>
+
+
+13) The localeCompare() method returns a number indicating whether a reference string comes before or after or is the same as the given string in sort order.
+The new locales and options arguments let applications specify the language whose sort order should be used and customize the behavior of the function. In older implementations, which ignore the locales and options arguments, the locale and sort order used are entirely implementation dependent.
+Syntax
+referenceStr.localeCompare(compareString[, locales[, options]])
+Parameters
+Check the Browser compatibility section to see which browsers support the locales and optionsarguments, and the Checking for support for locales and options arguments for feature detection.
+compareString
+The string against which the referring string is compared
+locales
+Optional. A string with a BCP 47 language tag, or an array of such strings. For the general form and interpretation of the locales argument, see the Intl page. The following Unicode extension keys are allowed:
+co
+Variant collations for certain locales. Possible values include: "big5han", "dict", "direct", "ducet", "gb2312", "phonebk", "phonetic", "pinyin", "reformed", "searchjl", "stroke", "trad", "unihan". The "standard" and "search" values are ignored; they are replaced by the options property usage (see below).
+kn
+Whether numeric collation should be used, such that "1" < "2" < "10". Possible values are "true"and "false". This option can be set through an options property or through a Unicode extension key; if both are provided, the options property takes precedence.
+kf
+Whether upper case or lower case should sort first. Possible values are "upper", "lower", or "false" (use the locale's default). This option can be set through an options property or through a Unicode extension key; if both are provided, the options property takes precedence.
+options
+Optional. An object with some or all of the following properties:
+localeMatcher
+The locale matching algorithm to use. Possible values are "lookup" and "best fit"; the default is "best fit". For information about this option, see the Intl page.
+usage
+Whether the comparison is for sorting or for searching for matching strings. Possible values are "sort" and "search"; the default is "sort".
+sensitivity
+Which differences in the strings should lead to non-zero result values. Possible values are:
+•	"base": Only strings that differ in base letters compare as unequal. Examples: a ≠ b, a = á, a = A.
+•	"accent": Only strings that differ in base letters or accents and other diacritic marks compare as unequal. Examples: a ≠ b, a ≠ á, a = A.
+•	"case": Only strings that differ in base letters or case compare as unequal. Examples: a ≠ b, a = á, a ≠ A.
+•	"variant": Strings that differ in base letters, accents and other diacritic marks, or case compare as unequal. Other differences may also be taken into consideration. Examples: a ≠ b, a ≠ á, a ≠ A.
+The default is "variant" for usage "sort"; it's locale dependent for usage "search".
+ignore¬Punctua¬tion
+Whether punctuation should be ignored. Possible values are true and false; the default is false.
+numeric
+Whether numeric collation should be used, such that "1" < "2" < "10". Possible values are true and false; the default is false. This option can be set through an options property or through a Unicode extension key; if both are provided, the options property takes precedence. Implementations are not required to support this property.
+caseFirst
+Whether upper case or lower case should sort first. Possible values are "upper", "lower", or "false" (use the locale's default); the default is "false". This option can be set through an options property or through a Unicode extension key; if both are provided, the options property takes precedence. Implementations are not required to support this property.
+Return value
+A negative number if the reference string occurs before the compare string; positive if the reference string occurs after the compare string; 0 if they are equivalent.
+Description
+Returns an integer indicating whether the referenceStr comes before, after or is equivalent to the compareStr.
+•	Negative when the referenceStr occurs before compareStr
+•	Positive when the referenceStr occurs after compareStr
+•	Returns 0 if they are equivalent
+DO NOT rely on exact return values of -1 or 1. Negative and positive integer results vary between browsers (as well as between browser versions) because the W3C specification only mandates negative and positive values. Some browsers may return -2 or 2 or even some other negative or positive value.
+Examples
+Using localeCompare()
+// The letter "a" is before "c" yielding a negative value
+'a'.localeCompare('c'); // -2 or -1 (or some other negative value)
+
+// Alphabetically the word "check" comes after "against" yielding a positive value
+'check'.localeCompare('against'); // 2 or 1 (or some other positive value)
+
+// "a" and "a" are equivalent yielding a neutral value of zero
+'a'.localeCompare('a'); // 0
+
+
+
+14) The match() method retrieves the matches when matching a string against a regular expression.
+Syntax
+str.match(regexp)
+Parameters
+regexp
+A regular expression object. If a non-RegExp object obj is passed, it is implicitly converted to a RegExp by using new RegExp(obj). If you don't give any parameter and use the match() method directly, you will get an Array with an empty string:[""].
+Return value
+An Array containing the entire match result and any parentheses-captured matched results; null if there were no matches.
+Description
+If the regular expression does not include the g flag, returns the same result as RegExp.exec(). The returned Array has an extra input property, which contains the original string that was parsed. In addition, it has an index property, which represents the zero-based index of the match in the string.
+If the regular expression includes the g flag, the method returns an Array containing all matched substrings rather than match objects. Captured groups are not returned. If there were no matches, the method returns null.
+See also: RegExp methods
+•	If you need to know if a string matches a regular expression RegExp, use search().
+•	If you only want the first match found, you might want to use RegExp.exec() instead.
+•	if you want to obtain capture groups and the global flag is set, you need to use RegExp.exec()instead.
+Examples
+Using match()
+In the following example, match() is used to find 'Chapter' followed by 1 or more numeric characters followed by a decimal point and numeric character 0 or more times. The regular expression includes the i flag so that upper/lower case differences will be ignored.
+var str = 'For more information, see Chapter 3.4.5.1';
+var re = /see (chapter \d+(\.\d)*)/i;
+var found = str.match(re);
+
+console.log(found);
+
+// logs [ 'see Chapter 3.4.5.1',
+//        'Chapter 3.4.5.1',
+//        '.1',
+//        index: 22,
+//        input: 'For more information, see Chapter 3.4.5.1' ]
+
+// 'see Chapter 3.4.5.1' is the whole match.
+// 'Chapter 3.4.5.1' was captured by '(chapter \d+(\.\d)*)'.
+// '.1' was the last value captured by '(\.\d)'.
+// The 'index' property (22) is the zero-based index of the whole match.
+// The 'input' property is the original string that was parsed.
+
+
+15) The normalize() method returns the Unicode Normalization Form of a given string (if the value isn't a string, it will be converted to one first).
+Syntax
+str.normalize([form])
+Parameters
+form
+One of "NFC", "NFD", "NFKC", or "NFKD", specifying the Unicode Normalization Form. If omitted or undefined, "NFC" is used.
+•	NFC — Normalization Form Canonical Composition.
+•	NFD — Normalization Form Canonical Decomposition.
+•	NFKC — Normalization Form Compatibility Composition.
+•	NFKD — Normalization Form Compatibility Decomposition.
+Return value
+A string containing the Unicode Normalization Form of the given string.
+Errors thrown
+RangeError
+A RangeError is thrown if form isn't one of the values specified above.
+Description
+The normalize() method returns the specified Unicode Normalization Form of the string. It does not affect the value of the string itself.
+Examples
+Using normalize()
+// Initial string
+
+// U+1E9B: LATIN SMALL LETTER LONG S WITH DOT ABOVE
+// U+0323: COMBINING DOT BELOW
+var str = '\u1E9B\u0323';
+
+
+// Canonically-composed form (NFC)
+
+// U+1E9B: LATIN SMALL LETTER LONG S WITH DOT ABOVE
+// U+0323: COMBINING DOT BELOW
+str.normalize('NFC'); // '\u1E9B\u0323'
+str.normalize();      // same as above
+
+
+// Canonically-decomposed form (NFD)
+
+// U+017F: LATIN SMALL LETTER LONG S
+// U+0323: COMBINING DOT BELOW
+// U+0307: COMBINING DOT ABOVE
+str.normalize('NFD'); // '\u017F\u0323\u0307'
+
+
+// Compatibly-composed (NFKC)
+
+// U+1E69: LATIN SMALL LETTER S WITH DOT BELOW AND DOT ABOVE
+str.normalize('NFKC'); // '\u1E69'
+
+
+// Compatibly-decomposed (NFKD)
+
+// U+0073: LATIN SMALL LETTER S
+// U+0323: COMBINING DOT BELOW
+// U+0307: COMBINING DOT ABOVE
+str.normalize('NFKD'); // '\u0073\u0323\u0307'
+
+
+16) The repeat() method constructs and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together.
+Syntax
+/** 
+ * str: String
+ * count: Number
+ */
+
+let resultString = str.repeat(count);
+Parameters
+count
+An integer between 0 and +∞: [0, +∞), indicating the number of times to repeat the string in the newly-created string that is to be returned.
+Return value
+A new string containing the specified number of copies of the given string.
+Exceptions
+•	RangeError: repeat count must be non-negative.
+•	RangeError: repeat count must be less than infinity and not overflow maximum string size.
+Examples
+'abc'.repeat(-1);   // RangeError
+'abc'.repeat(0);    // ''
+'abc'.repeat(1);    // 'abc'
+'abc'.repeat(2);    // 'abcabc'
+'abc'.repeat(3.5);  // 'abcabcabc' (count will be converted to integer)
+'abc'.repeat(1/0);  // RangeError
+
+({ toString: () => 'abc', repeat: String.prototype.repeat }).repeat(2);
+// 'abcabc' (repeat() is a generic method)
+
+
+17) The replace() method returns a new string with some or all matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp, and the replacement can be a string or a function to be called for each match.
+Syntax
+str.replace(regexp|substr, newSubstr|function)
+Parameters
+regexp (pattern)
+A RegExp object or literal. The match or matches are replaced with newSubStr or the value returned by the specified function.
+substr (pattern)
+A String that is to be replaced by newSubStr. It is treated as a verbatim string and is not interpreted as a regular expression. Only the first occurrence will be replaced.
+newSubStr (replacement)
+The String that replaces the substring specified by the specified regexp or substr parameter. A number of special replacement patterns are supported; see the "Specifying a string as a parameter" section below.
+function (replacement)
+A function to be invoked to create the new substring to be used to replace the matches to the given regexp or substr. The arguments supplied to this function are described in the "Specifying a function as a parameter" section below.
+Return value
+A new string with some or all matches of a pattern replaced by a replacement.
+Description
+This method does not change the String object it is called on. It simply returns a new string.
+To perform a global search and replace, include the g switch in the regular expression.
+
+
+18) The search() method executes a search for a match between a regular expression and this Stringobject.
+Syntax
+str.search(regexp)
+Parameters
+regexp
+A regular expression object. If a non-RegExp object obj is passed, it is implicitly converted to a RegExp by using new RegExp(obj).
+Return value
+The index of the first match between the regular expression and the given string; if not found, -1.
+Description
+When you want to know whether a pattern is found and also its index in a string use search() (if you only want to know it exists, use the similar test() method, which returns a boolean); for more information (but slower execution) use match() (similar to the regular expression exec() method).
+Examples
+Using search()
+The following example logs a message which depends on the success of the test.
+function testinput(re, str) {
+  var midstring;
+  if (str.search(re) != -1) {
+    midstring = ' contains ';
+  } else {
+    midstring = ' does not contain ';
+  }
+  console.log(str + midstring + re);
+}
+
+
+19) The slice() method extracts a section of a string and returns a new string.
+Syntax
+str.slice(beginSlice[, endSlice])
+Parameters
+beginSlice
+The zero-based index at which to begin extraction. If negative, it is treated as sourceLength + beginSlice where sourceLength is the length of the string (for example, if beginSlice is -3 it is treated as sourceLength - 3). If beginSlice is greater than or equal to the length of the string, slice() returns an empty string.
+endSlice
+Optional. The zero-based index at which to end extraction. If omitted, slice() extracts to the end of the string. If negative, it is treated as sourceLength + endSlice where sourceLength is the length of the string (for example, if endSlice is -3 it is treated as sourceLength - 3).
+Return value
+A new string containing the extracted section of the string.
+Description
+slice() extracts the text from one string and returns a new string. Changes to the text in one string do not affect the other string.
+slice() extracts up to but not including endSlice. str.slice(1, 4) extracts the second character through the fourth character (characters indexed 1, 2, and 3).
+As an example, str.slice(2, -1) extracts the third character through the second to last character in the string.
+Examples
+Using slice() to create a new string
+The following example uses slice() to create a new string.
+var str1 = 'The morning is upon us.', // the length of str1 is 23.
+    str2 = str1.slice(1, 8),
+    str3 = str1.slice(4, -2),
+    str4 = str1.slice(12),
+    str5 = str1.slice(30);
+console.log(str2); // OUTPUT: he morn
+console.log(str3); // OUTPUT: morning is upon u
+console.log(str4); // OUTPUT: is upon us.
+console.log(str5); // OUTPUT: ""
+Using slice() with negative indexes
+The following example uses slice() with negative indexes.
+var str = 'The morning is upon us.';
+str.slice(-3);     // returns 'us.'
+str.slice(-3, -1); // returns 'us'
+str.slice(0, -1);  // returns 'The morning is upon us'
+
+
+20) The split() method splits a String object into an array of strings by separating the string into substrings.
+Syntax
+str.split([separator[, limit]])
+Parameters
+separator
+Optional. Specifies the character(s) to use for separating the string. The separator is treated as a string or a regular expression. If separator is omitted or do not occur in str, the array returned contains one element consisting of the entire string. If separator is an empty string, str is converted to an array of characters.
+limit
+Optional. Integer specifying a limit on the number of splits to be found. The split() method still splits on every match of separator, until the number of split items match the limit or the string falls short of separator.
+Return value
+An array of strings split at each point where the separator occurs in the given string.
+Description
+When found, separator is removed from the string and the substrings are returned in an array. If separator is not found or is omitted, the array contains one element consisting of the entire string. If separator is an empty string, str is converted to an array of characters.
+If separator is a regular expression that contains capturing parentheses, then each time separator is matched, the results (including any undefined results) of the capturing parentheses are spliced into the output array. However, not all browsers support this capability.
+
+Examples
+Using split()
+The following example defines a function that splits a string into an array of strings using the specified separator. After splitting the string, the function displays messages indicating the original string (before the split), the separator used, the number of elements in the array, and the individual array elements.
+function splitString(stringToSplit, separator) {
+  var arrayOfStrings = stringToSplit.split(separator);
+
+  console.log('The original string is: "' + stringToSplit + '"');
+  console.log('The separator is: "' + separator + '"');
+  console.log('The array has ' + arrayOfStrings.length + ' elements: ' + arrayOfStrings.join(' / '));
+}
+
+var tempestString = 'Oh brave new world that has such people in it.';
+var monthString = 'Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec';
+
+var space = ' ';
+var comma = ',';
+
+splitString(tempestString, space);
+splitString(tempestString);
+splitString(monthString, comma);
+
+This example produces the following output:
+The original string is: "Oh brave new world that has such people in it."
+The separator is: " "
+The array has 10 elements: Oh / brave / new / world / that / has / such / people / in / it.
+
+The original string is: "Oh brave new world that has such people in it."
+The separator is: "undefined"
+The array has 1 elements: Oh brave new world that has such people in it.
+
+The original string is: "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec"
+The separator is: ","
+The array has 12 elements: Jan / Feb / Mar / Apr / May / Jun / Jul / Aug / Sep / O
+
+
+21) The startsWith() method determines whether a string begins with the characters of another string, returning true or false as appropriate.
+Syntax
+str.startsWith(searchString[, position])
+Parameters
+searchString
+The characters to be searched for at the start of this string.
+position Optional
+The position in this string at which to begin searching for searchString; defaults to 0.
+Return value
+true if the string begins with the characters of the search string; otherwise, false.
+Description
+This method lets you determine whether or not a string begins with another string. This method is case-sensitive.
+Examples
+Using startsWith()
+//startswith
+var str = 'To be, or not to be, that is the question.';
+
+console.log(str.startsWith('To be'));         // true
+console.log(str.startsWith('not to be'));     // false
+console.log(str.startsWith('not to be', 10)); // true
+Polyfill
+This method has been added to the ECMAScript 2015 specification and may not be available in all JavaScript implementations yet. However, you can polyfill String.prototype.startsWith() with the following snippet:
+if (!String.prototype.startsWith) {
+    String.prototype.startsWith = function(searchString, position){
+      position = position || 0;
+      return this.substr(position, searchString.length) === searchString;
+  };
+}
+
+22) The substr() method returns the characters in a string beginning at the specified location through the specified number of characters. 
+Syntax
+str.substr(start [, length])
+Parameters
+start
+Location at which to begin extracting characters. If a negative number is given, it is treated as strLength + start where strLength is the length of the string (for example, if start is -3 it is treated as strLength - 3.)
+length
+Optional. The number of characters to extract.
+Return value
+A new string containing the extracted section of the given string. If length is 0 or a negative number, an empty string is returned.
+Description
+start is a character index. The index of the first character is 0, and the index of the last character is 1 less than the length of the string. substr() begins extracting characters at start and collects lengthcharacters (unless it reaches the end of the string first, in which case it will return fewer).
+If start is positive and is greater than or equal to the length of the string, substr() returns an empty string.
+If start is negative, substr() uses it as a character index from the end of the string. If start is negative and abs(start) is larger than the length of the string, substr() uses 0 as the start index. Note: the described handling of negative values of the start argument is not supported by Microsoft JScript.
+If length is 0 or negative, substr() returns an empty string. If length is omitted, substr() extracts characters to the end of the string.
+Examples
+Using substr()
+var str = 'abcdefghij';
+
+console.log('(1, 2): '   + str.substr(1, 2));   // '(1, 2): bc'
+console.log('(-3, 2): '  + str.substr(-3, 2));  // '(-3, 2): hi'
+console.log('(-3): '     + str.substr(-3));     // '(-3): hij'
+console.log('(1): '      + str.substr(1));      // '(1): bcdefghij'
+console.log('(-20, 2): ' + str.substr(-20, 2)); // '(-20, 2): ab'
+console.log('(20, 2): '  + str.substr(20, 2));  // '(20, 2): '
+
+23) The substring() method returns a subset of a string between one index and another, or through the end of the string.
+Syntax
+str.substring(indexStart[, indexEnd])
+Parameters
+indexStart
+An integer between 0 and the length of the string, specifying the offset into the string of the first character to include in the returned substring.
+indexEnd
+Optional. An integer between 0 and the length of the string, which specifies the offset into the string of the first character not to include in the returned substring.
+Return value
+A new string containing the extracted section of the given string.
+Description
+substring() extracts characters from indexStart up to but not including indexEnd. In particular:
+•	If indexStart equals indexEnd, substring() returns an empty string.
+•	If indexEnd is omitted, substring() extracts characters to the end of the string.
+•	If either argument is less than 0 or is NaN, it is treated as if it were 0.
+•	If either argument is greater than stringName.length, it is treated as if it were stringName.length.
+If indexStart is greater than indexEnd, then the effect of substring() is as if the two arguments were swapped; for example, str.substring(1, 0) == str.substring(0, 1).
+Examples
+Using substring()
+The following example uses substring() to display characters from the string 'Mozilla':
+var anyString = 'Mozilla';
+
+// Displays 'Moz'
+console.log(anyString.substring(0, 3));
+console.log(anyString.substring(3, 0));
+
+// Displays 'lla'
+console.log(anyString.substring(4, 7));
+console.log(anyString.substring(4));
+console.log(anyString.substring(7, 4));
+
+// Displays 'Mozill'
+console.log(anyString.substring(0, 6));
+
+// Displays 'Mozilla'
+console.log(anyString.substring(0, 7));
+console.log(anyString.substring(0, 10));
+
+24) The toLocaleLowerCase() method returns the calling string value converted to lower case, according to any locale-specific case mappings.
+Syntax
+str.toLocaleLowerCase()
+Return value
+A new string representing the calling string converted to lower case, according to any locale-specific case mappings.
+Description
+The toLocaleLowerCase() method returns the value of the string converted to lower case according to any locale-specific case mappings. toLocaleLowerCase() does not affect the value of the string itself. In most cases, this will produce the same result as toLowerCase(), but for some locales, such as Turkish, whose case mappings do not follow the default case mappings in Unicode, there may be a different result.
+Examples
+Using toLocaleLowerCase()
+console.log('ALPHABET'.toLocaleLowerCase()); // 'alphabet'
+
+25) The toLocaleUpperCase() method returns the calling string value converted to upper case, according to any locale-specific case mappings.
+Syntax
+str.toLocaleUpperCase()
+Return value
+A new string representing the calling string converted to upper case, according to any locale-specific case mappings.
+Description
+The toLocaleUpperCase() method returns the value of the string converted to upper case according to any locale-specific case mappings. toLocaleUpperCase() does not affect the value of the string itself. In most cases, this will produce the same result as toUpperCase(), but for some locales, such as Turkish, whose case mappings do not follow the default case mappings in Unicode, there may be a different result.
+Examples
+Using toLocaleUpperCase()
+console.log('alphabet'.toLocaleUpperCase()); // 'ALPHABET'
+
+26) The toLowerCase() method returns the calling string value converted to lower case.
+Syntax
+str.toLowerCase()
+Return value
+A new string representing the calling string converted to lower case.
+Description
+The toLowerCase() method returns the value of the string converted to lower case. toLowerCase()does not affect the value of the string str itself.
+Examples
+Using toLowerCase()
+console.log('ALPHABET'.toLowerCase()); // 'alphabet'
+
+27) The toString() method returns a string representing the specified object.
+Syntax
+str.toString()
+Return value
+A string representing the calling object.
+Description
+The String object overrides the toString() method of the Object object; it does not inherit Object.prototype.toString(). For String objects, the toString() method returns a string representation of the object and is the same as the String.prototype.valueOf() method.
+Examples
+Using toString()
+The following example displays the string value of a String object:
+var x = new String('Hello world');
+
+console.log(x.toString()); // logs 'Hello world'
+
+28) The toUpperCase() method returns the calling string value converted to upper case.
+Syntax
+str.toUpperCase()
+Return value
+A new string representing the calling string converted to upper case.
+Description
+The toUpperCase() method returns the value of the string converted to upper case. toUpperCase()does not affect the value of the string itself.
+Examples
+Using toUpperCase()
+console.log('alphabet'.toUpperCase()); // 'ALPHABET'
+
+29) The trim() method removes whitespace from both ends of a string. Whitespace in this context is all the whitespace characters (space, tab, no-break space, etc.) and all the line terminator characters (LF, CR, etc.).
+Syntax
+str.trim()
+Return value
+A new string representing the calling string stripped of whitespace from both ends.
+Description
+The trim() method returns the string stripped of whitespace from both ends. trim() does not affect the value of the string itself.
+Examples
+Using trim()
+The following example displays the lowercase string 'foo':
+var orig = '   foo  ';
+console.log(orig.trim()); // 'foo'
+
+// Another example of .trim() removing whitespace from just one side.
+
+var orig = 'foo    ';
+console.log(orig.trim()); // 'foo'
+Polyfill
+Running the following code before any other code will create trim() if it's not natively available.
+if (!String.prototype.trim) {
+  String.prototype.trim = function () {
+    return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+  };
+}
+
+30) The valueOf() method returns the primitive value of a String object.
+Syntax
+str.valueOf()
+Return value
+A string representing the primitive value of a given String object.
+Description
+The valueOf() method of String returns the primitive value of a String object as a string data type. This value is equivalent to String.prototype.toString().
+This method is usually called internally by JavaScript and not explicitly in code.
+Examples
+Using valueOf()
+var x = new String('Hello world');
+console.log(x.valueOf()); // Displays 'Hello world'
+
+31) The [@@iterator]() method returns a new Iterator object that iterates over the code points of a String value, returning each code point as a String value.
+Syntax
+string[Symbol.iterator]
+Return value
+A new Iterator object.
+Examples
+Using [@@iterator]()
+var string = 'A\uD835\uDC68';
+
+var strIter = string[Symbol.iterator]();
+
+console.log(strIter.next().value); // "A"
+console.log(strIter.next().value); // "\uD835\uDC68"
+Using [@@iterator]() with for..of
+var string = 'A\uD835\uDC68B\uD835\uDC69C\uD835\uDC6A';
+
+for (var v of string) {
+  console.log(v);
+}
+// "A"
+// "\uD835\uDC68"
+// "B"
+// "\uD835\uDC69"
+// "C"
+// "\uD835\uDC6A"
+
+32) The static String.raw() method is a tag function of template literals, similar to the r prefix in Python or the @ prefix in C# for string literals (yet there is a difference: see explanations in this issue). It's used to get the raw string form of template strings (that is, the original, uninterpreted text).
+Syntax
+String.raw(callSite, ...substitutions)
+
+String.raw`templateString`
+Parameters
+callSite
+Well-formed template call site object, like { raw: 'string' }.
+...substitutions
+Contains substitution values.
+templateString
+A template string, optionally with substitutions (${...}).
+Return value
+The raw string form of a given template string.
+Errors thrown
+TypeError
+A TypeError is thrown if the first argument is not a well formed object.
+Description
+In most cases, String.raw() is used with template strings. The first syntax mentioned above is only rarely used, because the JavaScript engine will call this with proper arguments for you, just like with other tag functions.
+String.raw() is the only built-in tag function of template strings; it works just like the default template function and performs concatenation. You can even re-implement it with normal JavaScript code.
+Examples
+Using String.raw()
+String.raw`Hi\n${2+3}!`;
+// 'Hi\\n5!', the character after 'Hi' is not a newline character,
+// '\' and 'n' are two characters.
+
+String.raw`Hi\u000A!`;
+// 'Hi\\u000A!', same here, this time we will get the
+//  \, u, 0, 0, 0, A, 6 characters.
+// All kinds of escape characters will be ineffective and
+// backslashes will be present in the output string.
+// You can confirm this by checking the .length property of the string.
+
+let name = 'Bob';
+String.raw`Hi\n${name}!`;
+// 'Hi\\nBob!', substitutions are processed.
+
+// Normally you would not call String.raw() as a function, but you can do so:
+String.raw({ raw: 'test' }, 0, 1, 2);
+// 't0e1s2t'
+
