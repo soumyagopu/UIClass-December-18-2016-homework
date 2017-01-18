@@ -1,0 +1,19 @@
+
+
+In JavaScript, I've created an object like so:
+
+var data = {
+    'PropertyA': 1,
+    'PropertyB': 2,
+    'PropertyC': 3
+};
+Is it possible to add further properties to this object after it's initial creation if the properties name is not determined until run time? i.e.
+var propName = 'Property' + someUserInput
+//imagine someUserInput was 'Z', how can I now add a 'PropertyZ' property to 
+//my object?
+
+ Adding New Properties
+You can add new properties to an existing object by simply giving it a value.
+Assume that the person object already exists - you can then give it new properties:
+Example
+person.nationality = "English";

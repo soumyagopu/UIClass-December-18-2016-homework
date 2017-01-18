@@ -1,0 +1,39 @@
+JavaScript for...in Loop
+The JavaScript for...in statement loops through the properties of an object.
+Syntax
+for (variable in object) {
+    code to be executed
+}
+The block of code inside of the for...in loop will be executed once for each property.
+Looping through the properties of an object:
+Example
+var person = {fname:"John", lname:"Doe", age:25}; 
+
+for (x in person) {
+    txt += person[x];
+}
+
+You can get a property by name using the Select-Object cmdlet and specifying the property name(s) that you're interested in. Note that this doesn't simply return the raw value for that property; instead you get something that still behaves like an object.
+[PS]> $property = (Get-Process)[0] | Select-Object -Property Name
+
+[PS]> $property
+
+Name
+----
+armsvc
+
+[PS]> $property.GetType().FullName
+System.Management.Automation.PSCustomObject
+In order to use the value for that property, you will still need to identify which property you are after, even if there is only one property:
+[PS]> $property.Name
+armsvc
+
+[PS]> $property -eq "armsvc"
+False
+
+[PS]> $property.Name -eq "armsvc"
+True
+
+[PS]> $property.Name.GetType().FullName
+System.String
+

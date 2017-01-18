@@ -1,0 +1,17 @@
+update a property value in object
+
+
+ $.extend(true, skillet.person, {
+  name: {
+    first: 'updated'
+  },
+  birthday: {
+    day: 'updated',
+    year: 'updated'
+  }
+});
+
+push is a method of Arrays that adds a new item to an array.
+If you want to replace the value then:
+skillet.person.name = { … };
+If you want to store multiple (full) names in the object, then you'll need the property to hold an array of objects instead of a single object.

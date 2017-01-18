@@ -1,0 +1,45 @@
+	push is a method of Arrays that adds a new item to an array.
+If you want to replace the value then:
+skillet.person.name = { … };
+If you want to store multiple (full) names in the object, then you'll need the property to hold an array of objects instead of a single object.
+8) It depends on what you're looking for. If you want to know if an object physically contains a property (and it is not coming from somewhere up on the prototype chain) then object.hasOwnProperty is the way to go. All modern browsers support it. (It was missing in older versions of Safari - 2.0.1 and older - but those versions of the browser are rarely used any more.)
+If what you're looking for is if an object has a property on it that is iterable (when you iterate over the properties of the object, it will appear) then doing: prop in object will give you your desired effect.
+Since using hasOwnProperty is probably what you want, and considering that you may want a fallback method, I present to you the following solution:
+var obj = {
+    a: undefined,
+    b: null,
+    c: false
+};
+
+// a, b, c all found
+for ( var prop in obj ) {
+    document.writeln( "Object1: " + prop );
+}
+
+function Class(){
+    this.a = undefined;
+    this.b = null;
+    this.c = false;
+}
+
+Class.prototype = {
+    a: undefined,
+    b: true,
+    c: true,
+    d: true,
+    e: true
+};
+
+var obj2 = new Class();
+
+// a, b, c, d, e found
+for ( var prop in obj2 ) {
+    document.writeln( "Object2: " + prop );
+}
+
+function hasOwnProperty(obj, prop) {
+    var proto = obj.__proto__ || obj.constructor.prototype;
+    return (prop in obj) &&
+        (!(prop in proto) || proto[prop] !== obj[prop]);
+
+
