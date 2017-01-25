@@ -1,0 +1,14 @@
+creating a new object using function
+    
+     Function func1(){
+     
+     }
+Var f1 = new func1(); empty object is created.
+function person(na,ag);
+    this.name = na;
+    this.age=ag;
+    }
+Var p1 = new person(‘javascript’,43);
+Var p2 = new person((‘jhon’,56);
+Var p3 = new person(‘usha’,78);
+Using  new functionName()  we cac create new objects.

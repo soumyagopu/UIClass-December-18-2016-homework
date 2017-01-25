@@ -1,0 +1,37 @@
+The Object.defineProperty() method defines a new property directly on an object, or modifies an existing property on an object, and returns the object.
+Syntax
+Object.defineProperty(obj, prop, descriptor)
+Parameters
+obj
+The object on which to define the property.
+prop
+The name of the property to be defined or modified.
+descriptor
+The descriptor for the property being defined or modified.
+Return value
+The object that was passed to the function.
+Description
+This method allows precise addition to or modification of a property on an object. Normal property addition through assignment creates properties which show up during property enumeration (for...inloop or Object.keys method), whose values may be changed, and which may be deleted. This method allows these extra details to be changed from their defaults. By default, values added using Object.defineProperty() are immutable.
+Property descriptors present in objects come in two main flavors: data descriptors and accessor descriptors. A data descriptor is a property that has a value, which may or may not be writable. An accessor descriptor is a property described by a getter-setter pair of functions. A descriptor must be one of these two flavors; it cannot be both.
+Both data and accessor descriptors are objects. They share the following required keys:
+configurable
+true if and only if the type of this property descriptor may be changed and if the property may be deleted from the corresponding object.
+Defaults to false.
+enumerable
+true if and only if this property shows up during enumeration of the properties on the corresponding object.
+Defaults to false.
+A data descriptor also has the following optional keys:
+value
+The value associated with the property. Can be any valid JavaScript value (number, object, function, etc).
+Defaults to undefined.
+writable
+true if and only if the value associated with the property may be changed with an assignment operator.
+Defaults to false.
+An accessor descriptor also has the following optional keys:
+get
+A function which serves as a getter for the property, or undefined if there is no getter. The function return will be used as the value of property.
+Defaults to undefined.
+set
+A function which serves as a setter for the property, or undefined if there is no setter. The function will receive as only argument the new value being assigned to the property.
+Defaults to undefined.
+

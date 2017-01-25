@@ -1,0 +1,23 @@
+The Object.create() method creates a new object with the specified prototype object and properties.
+Syntax
+Object.create(proto[, propertiesObject])
+Parameters
+proto
+The object which should be the prototype of the newly-created object.
+propertiesObject
+Optional. If specified and not undefined, an object whose enumerable own properties (that is, those properties defined upon itself and not enumerable properties along its prototype chain) specify property descriptors to be added to the newly-created object, with the corresponding property names. These properties correspond to the second argument of Object.defineProperties().
+Return value
+A new object with the specified prototype object and properties.
+Exceptions
+A TypeError exception if the proto parameter isn't null or an object.
+
+The Object.keys() method returns an array of a given object's own enumerable properties, in the same order as that provided by a for...in loop (the difference being that a for-in loop enumerates properties in the prototype chain as well).
+Syntax
+Object.keys(obj)
+Parameters
+obj
+The object whose enumerable own properties are to be returned.
+Return value
+An array of strings that represent all the enumerable properties of the given object.
+Description
+Object.keys() returns an array whose elements are strings corresponding to the enumerable properties found directly upon object. The ordering of the properties is the same as that given by looping over the properties of the object manually.
