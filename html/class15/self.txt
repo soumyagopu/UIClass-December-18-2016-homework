@@ -1,0 +1,20 @@
+var self = this;
+They're keeping a reference to the current object, so later when you call self.keyword() you're calling that method on that object, not any other.
+Say you have for example images in the page you wanted to rotate every 2 seconds...you'd want each of those 3 timers to refer to their own methods. If they use this directly, it would (most of the time) refer to window and not the current object, whereas passing another variable in maintains the current reference.
+ 
+It works with setTimeout because of two conditions in the browser:
+•	All global variables are properties of the window object. That means that window has a property setTimeout (window.setTimeout).
+•	The window object has a property called self that points to itself.
+As you can access the properties of window without explicitly writing window (that is what makes the global variables global), both calls work: setTimeout() will look up the property setTimeout()on the window object. self.setTimeout() will look up the property self on the window object, which is the window object itself.
+So if you call self.setTimeout() it is the same as window.self.setTimeout() which is the same as window.setTimeout() which again is the same as setTimeout().
+Note: This only works if there is no variable self defined in the current scope that shadows the global self.
+This works with any symbol (meaning variable or function) defined in the global scope. You can test it yourself:
+alert(window.self);
+and
+alert(self);
+should both alert
+[object Window]
+accepted	self can refer to the window object, but typically that's not the case here. You'll see this commonly above that setTimeout():
+var self = this;
+They're keeping a reference to the current object, so later when you call self.keyword() you're calling that method on that object, not any other.
+Say you have for example images in the page you wanted to rotate every 2 seconds...you'd want each of those 3 timers to refer to their own methods. If they use this directly, it would (most of the time) refer to window and not the current object, whereas passing another variable in maintains the current reference.
