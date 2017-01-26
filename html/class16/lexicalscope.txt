@@ -1,0 +1,5 @@
+Lexical Scoping defines how variable names are resolved in nested functions: inner functions contain the scope of parent functions even if the parent function has returned.
+That's all there is to it! To help myself understand what this means, I wrote an in depth blog post about function scope and lexical scoping in JavaScript which can be found here. Maybe this could serve someone else too.
+
+Lexical scope is also known as static scope. Dynamic scope defines global variables that can be called or referenced from anywhere after being defined. Sometimes they are called global variables, even though global variables in most programmin languages are of lexical scope.
+

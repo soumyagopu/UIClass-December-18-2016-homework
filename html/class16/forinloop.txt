@@ -1,0 +1,12 @@
+The for/in statement loops through the properties of an object. The block of code inside the loop will be executed once for each property.JavaScript supports different kinds of loops: ... do/while - loops through a block of code once, and then repeats the loop while a specified condition is true
+Example
+Loop through the properties of an object:
+var person = {fname:"John", lname:"Doe", age:25}; 
+
+var text = "";
+var x;
+for (x in person) {
+    text += person[x];
+}
+The result of text will be:
+John Doe 25

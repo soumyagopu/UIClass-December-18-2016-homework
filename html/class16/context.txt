@@ -1,0 +1,6 @@
+Fundamentally, scope is function-based while context is object-based. In other words, scope pertains to the variable access of a function when it is invoked and is unique to each invocation. Context is always the value of the this keyword which is a reference to the object that “owns” the currently executing code.
+When code is run in JavaScript, the environment in which it is executed is very important, and is evaluated as 1 of the following:
+	Global code – The default envionment where your code is executed for the first time.
+	Function code – Whenever the flow of execution enters a function body.
+	Eval code – Text to be executed inside the internal eval function.
+You can read a lot of resources online that refer to scope, and for the purpose of this article to make things easier to understand, let’s think of the term execution context as the envionment / scope the current code is being evaluated in. Now, enough talking, let’s see an example that includes both global and function / local context evaluated code.
