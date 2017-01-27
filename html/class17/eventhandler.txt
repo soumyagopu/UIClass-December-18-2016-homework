@@ -1,0 +1,14 @@
+They are JavaScript code that are not added inside the <script> tags, but rather, inside the html tags, that execute JavaScript when something happens, such as pressing a button, moving your mouse over a link, submitting a form etc. The basic syntax of these event handlers is:
+name_of_handler="JavaScript code here"
+For example:
+1	<a href="http://google.com" onClick="alert('hello!')">Google</a>
+
+As you can, this is certainly unlike a regular JavaScript code in that here we're inserting it directly inside a HTML tag, via the onClick event handler. When the above link is clicked, the user will first see an alert message before being taken to Google.
+Different event handlers with with different HTML tags. For example, while "onclick" can be inserted into most HTML tags to respond to that tag's onclick action, something like "onload" (see below) only works inside the <body> and <img> tags. Below are some of the most commonly used event handlers supported by JavaScript:
+Event Handlers:
+
+onclick:	 	Use this to invoke JavaScript upon clicking (a link, or form boxes)
+onload:	 	Use this to invoke JavaScript after the page or an image has finished loading.
+onmouseover:	 	Use this to invoke JavaScript if the mouse passes by some link
+onmouseout:	 	Use this to invoke JavaScript if the mouse goes pass some link
+onunload:	 	Use this to invoke JavaScript right after someone leaves this page.

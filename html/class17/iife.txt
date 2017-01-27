@@ -1,0 +1,35 @@
+An immediately-invoked function expression (or IIFE) is a JavaScript programming language idiom which produces a lexical scope using JavaScript's function scoping. Immediately-invoked function expressions can be used to avoid variable hoisting from within blocks, protect against polluting the global environment and simultaneously allow public access to methods while retaining privacy for variables defined within the function. This concept has been referred to as a self-executing anonymous function,
+ IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined.
+
+	It’s an Immediately-Invoked Function Expression, or IIFE for short. It executes immediately after it’s created.
+It has nothing to do with any event-handler for any events (such as document.onload).
+The first pair of parentheses (function(){...}) turns the code within (in this case, a function) into an expression, and the second pair of parentheses (function(){...})() calls the function that results from that evaluated expression.
+This pattern is often used when trying to avoid polluting the global namespace, because all the variables used inside the IIFE (like in any other normal function) are not visible outside its scope.
+This is why, maybe, you confused this construction with an event-handler for window.onload, because it’s often used as this:
+(function(){
+    // all your code here
+    var foo = function() {};
+    window.onload = foo;
+    // ...
+})();
+// foo is unreachable here (it’s undefined)
+     
+The function is executed right after it's created, not after it is parsed. The entire script block is parsed before any code in it is executed. Also, parsing code doesn't automatically mean that it's executed, if for example the IIFE is inside a function then it won't be executed until the function is called.
+Its called IIFE in short ( Immediately invoked function expression ).
+
+1.	( function(a, b, c){
+2.	        // some code ...
+3.	})();
+
+It does three things in 1 statement.
+
+1.	Creates a function instance.
+2.	Executes the function.
+3.	Discard the function. The function created was an anonymous function and after the statement there is not reference to it.
+If any inner function is defined in the IIFE statement then a closure is created for the inner function. Whenever the inner function is invoked it has access to all the variables it got inside the closure.
+
+•	Module pattern can  be implemented with the help of IIFE.
+•	One of the most common ways in which immediate functions are used: as simple, self-contained wrappers for functionality. The variables needed for the unit of functionality are trapped in the closure, but they aren’t visible anywhere else.
+•	Enforcing the use of a name within an enclosed scope. 
+•	Keeping code readable with shorter names.
+
