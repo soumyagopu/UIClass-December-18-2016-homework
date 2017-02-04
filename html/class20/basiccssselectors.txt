@@ -1,0 +1,213 @@
+Category: Basic
+
+All Selector (“*”)
+Selects all elements.
+
+Class Selector (“.class”)
+Selects all elements with the given class.
+
+Element Selector (“element”)
+Selects all elements with the given tag name.
+
+ID Selector (“#id”)
+Selects a single element with the given id attribute.
+
+Multiple Selector (“selector1, selector2, selectorN”)
+Selects the combined results of all the specified selectors.
+
+1)all selector
+Description: Selects all elements.
+•	jQuery( "*" )
+Caution: The all, or universal, selector is extremely slow, except when used by itself.
+Find every element (including head, body, etc) in the document. Note that if your browser has an extension/add-on enabled that inserts a <script> or <link> element into the DOM, that element will be counted as well.
+	
+  <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>all demo</title>
+  <style>
+  h3 {
+    margin: 0;
+  }
+  div, span, p {
+    width: 80px;
+    height: 40px;
+    float: left;
+    padding: 10px;
+    margin: 10px;
+    background-color: #EEEEEE;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div>DIV</div>
+<span>SPAN</span>
+<p>P <button>Button</button></p>
+ 
+<script>
+var elementCount = $( "*" ).css( "border", "3px solid red" ).length;
+$( "body" ).prepend( "<h3>" + elementCount + " elements found</h3>" );
+</script>
+ 
+</body>
+</html>
+
+2)class selector
+Description: Selects all elements with the given class.
+Find every element (including head, body, etc) in the document. Note that if your browser has an extension/add-on enabled that inserts a <script> or <link> element into the DOM, that element will be counted as well.
+
+•	jQuery( ".class" )
+class: A class to search for. An element can have multiple classes; only one of them must match.
+For class selectors, jQuery uses JavaScript's native getElementsByClassName() function if the browser supports it.
+Examples:
+Finds the element with the class "myClass".
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>class demo</title>
+  <style>
+  div, span {
+    width: 120px;
+    height: 40px;
+    float: left;
+    padding: 10px;
+    margin: 10px;
+    background-color: #EEEEEE;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div class="notMe">div class="notMe"</div>
+<div class="myClass">div class="myClass"</div>
+<span class="myClass">span class="myClass"</span>
+ 
+<script>
+$( ".myClass" ).css( "border", "3px solid red" );
+</script>
+ 
+</body>
+</html>
+
+3)element selector
+Description: Selects all elements with the given tag name.
+•	jQuery( "element" )
+element: An element to search for. Refers to the tagName of DOM nodes.
+JavaScript's getElementsByTagName() function is called to return the appropriate elements when this expression is used.
+Example:
+Finds every DIV element.
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>element demo</title>
+  <style>
+  div, span {
+    width: 60px;
+    height: 60px;
+    float: left;
+    padding: 10px;
+    margin: 10px;
+    background-color: #eee;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div>DIV1</div>
+<div>DIV2</div>
+<span>SPAN</span>
+ 
+<script>
+$( "div" ).css( "border", "9px solid red" );
+</script>
+ 
+</body>
+</html>
+
+4)id selector
+Description: Selects a single element with the given id attribute.
+•	jQuery( "#id" )
+id: An ID to search for, specified via the id attribute of an element.
+For id selectors, jQuery uses the JavaScript function document.getElementById(), which is extremely efficient. When another selector is attached to the id selector, such as h2#pageTitle, jQuery performs an additional check before identifying the element as a match.
+Calling jQuery() (or $()) with an id selector as its argument will return a jQuery object containing a collection of either zero or one DOM element.
+Each id value must be used only once within a document. If more than one element has been assigned the same ID, queries that use that ID will only select the first matched element in the DOM. This behavior should not be relied on, however; a document with more than one element using the same ID is invalid.
+If the id contains characters like periods or colons you have to escape those characters with backslashes.
+Examples:
+Select the element with the id "myDiv" and give it a red border.
+	<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>id demo</title>
+  <style>
+  div {
+    width: 90px;
+    height: 90px;
+    float: left;
+    padding: 5px;
+    margin: 5px;
+    background-color: #eee;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div id="notMe"><p>id="notMe"</p></div>
+<div id="myDiv">id="myDiv"</div>
+ 
+<script>
+$( "#myDiv" ).css( "border", "3px solid red" );
+</script>
+ 
+</body>
+</html>
+
+5) multiple selector
+Description: Selects the combined results of all the specified selectors.
+jQuery( "selector1, selector2, selectorN" )
+selector1: Any valid selector.
+selector2: Another valid selector.
+selectorN: As many more valid selectors as you like.
+You can specify any number of selectors to combine into a single result. This multiple expression combinator is an efficient way to select disparate elements. The order of the DOM elements in the returned jQuery object may not be identical, as they will be in document order. An alternative to this combinator is the .add() method.
+Examples:
+Finds the elements that match any of these three selectors.
+	<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>multiple demo</title>
+  <style>
+  div, span, p {
+    width: 126px;
+    height: 60px;
+    float: left;
+    padding: 3px;
+    margin: 2px;
+    background-color: #eee;
+    font-size: 14px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div>div</div>
+<p class="myClass">p class="myClass"</p>
+<p class="notMyClass">p class="notMyClass"</p>
+<span>span</span>
+ 
+<script>
+$( "div, span, p.myClass" ).css( "border", "3px solid red" );
+</script>
+ 
+</body>
+</html>

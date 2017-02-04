@@ -1,0 +1,211 @@
+Category: Hierarchy
+
+Child Selector (“parent > child”)
+Selects all direct child elements specified by “child” of elements specified by “parent”.
+
+Descendant Selector (“ancestor descendant”)
+Selects all elements that are descendants of a given ancestor.
+
+Next Adjacent Selector (“prev + next”)
+Selects all next elements matching “next” that are immediately preceded by a sibling “prev”.
+
+Next Siblings Selector (“prev ~ siblings”)
+Selects all sibling elements that follow after the “prev” element, have the same parent, and match the filtering “siblings” selector.
+
+1)child selector
+Description: Selects all direct child elements specified by "child" of elements specified by "parent".
+
+jQuery( "parent > child" )
+parent: Any valid selector.
+
+child: A selector to filter the child elements.
+
+The child combinator (E > F) can be thought of as a more specific form of the descendant combinator (E F) in that it selects only first-level descendants.
+
+Example:
+Places a border around all list items that are children of <ul class="topnav"> .
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>child demo</title>
+  <style>
+  body {
+    font-size: 14px;
+  }
+  	</style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<ul class="topnav">
+  <li>Item 1</li>
+  <li>Item 2
+    <ul>
+    <li>Nested item 1</li>
+    <li>Nested item 2</li>
+    <li>Nested item 3</li>
+    </ul>
+  </li>
+  <li>Item 3</li>
+</ul>
+ 
+<script>
+$( "ul.topnav > li" ).css( "border", "3px double red" );
+</script>
+ 
+</body>
+</html>
+
+2)descendant selector
+Description: Selects all elements that are descendants of a given ancestor.
+
+jQuery( "ancestor descendant" )
+ancestor: Any valid selector.
+
+descendant: A selector to filter the descendant elements.
+
+A descendant of an element could be a child, grandchild, great-grandchild, and so on, of that element.
+
+Example:
+Mark all inputs that are descendants of a form with a dotted blue border. Give a yellow background to inputs that are descendants of a fieldset that is a descendant of a form.
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>descendant demo</title>
+  <style>
+  form {
+    border: 2px green solid;
+    padding: 2px;
+    margin: 0;
+    background: #efe;
+  }
+  div {
+    color: red;
+  }
+  fieldset {
+    margin: 1px;
+    padding: 3px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<form>
+  <div>Form is surrounded by the green border.</div>
+ 
+  <label for="name">Child of form:</label>
+  <input name="name" id="name">
+ 
+  <fieldset>
+    <label for="newsletter">Grandchild of form, child of fieldset:</label>
+    <input name="newsletter" id="newsletter">
+  </fieldset>
+</form>
+Sibling to form: <input name="none">
+ 
+<script>
+$( "form input" ).css( "border", "2px dotted blue" );
+$( "form fieldset input" ).css( "backgroundColor", "yellow" );
+</script>
+ 
+</body>
+</html>
+
+3)next adjacent selector
+Description: Selects all next elements matching "next" that are immediately preceded by a sibling "prev".
+
+jQuery( "prev + next" )
+prev: Any valid selector.
+
+next: A selector to match the element that is next to the first selector.
+
+One important point to consider with both the next adjacent sibling selector (prev + next) and the general sibling selector (prev ~ siblings) is that the elements on either side of the combinator must share the same parent.
+
+Example:
+Finds all inputs that are next to a label.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>next adjacent demo</title>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<form>
+  <label for="name">Name:</label>
+  <input name="name" id="name">
+  <fieldset>
+    <label for="newsletter">Newsletter:</label>
+    <input name="newsletter" id="newsletter">
+  </fieldset>
+</form>
+<input name="none">
+ 
+<script>
+$( "label + input" ).css( "color", "blue" ).val( "Labeled!" );
+</script>
+ 
+</body>
+</html>
+
+4)next siblings selector
+Description: Selects all sibling elements that follow after the "prev" element, have the same parent, and match the filtering "siblings" selector.
+
+jQuery( "prev ~ siblings" )
+prev: Any valid selector.
+
+siblings: A selector to filter elements that are the following siblings of the first selector.
+
+The notable difference between (prev + next) and (prev ~ siblings) is their respective reach. While the former reaches only to the immediately following sibling element, the latter extends that reach to all following sibling elements.
+
+Example:
+Finds all divs that are siblings after the element with #prev as its id. Notice the span isn't selected since it is not a div and the "niece" isn't selected since it is a child of a sibling, not an actual sibling.
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>next siblings demo</title>
+  <style>
+  div, span {
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    background: #bfa;
+    float: left;
+    font-size: 14px;
+  }
+  div#small {
+    width: 60px;
+    height: 25px;
+    font-size: 12px;
+    background: #fab;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div>div (doesn't match since before #prev)</div>
+<span id="prev">span#prev</span>
+<div>div sibling</div>
+<div>div sibling <div id="small">div niece</div></div>
+<span>span sibling (not div)</span>
+<div>div sibling</div>
+ 
+<script>
+$( "#prev ~ div" ).css( "border", "3px groove blue" );
+</script>
+ 
+</body>
+</html>

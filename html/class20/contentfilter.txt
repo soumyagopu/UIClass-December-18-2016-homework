@@ -1,0 +1,156 @@
+Category: Content Filter
+
+:contains() Selector
+Select all elements that contain the specified text.
+
+:empty Selector
+Select all elements that have no children (including text nodes).
+Also in: Selectors > jQuery Extensions
+
+:has() Selector
+Selects elements which contain at least one element that matches the specified selector.
+Also in: Selectors > jQuery Extensions
+
+:parent Selector
+Select all elements that have at least one child node (either an element or text).
+
+1)contains selector
+Description: Select all elements that contain the specified text.
+
+jQuery( ":contains(text)" )
+text: A string of text to look for. It's case sensitive.
+
+The matching text can appear directly within the selected element, in any of that element's descendants, or a combination thereof. As with attribute value selectors, text inside the parentheses of :contains() can be written as a bare word or surrounded by quotation marks. The text must have matching case to be selected.
+
+Example:
+Finds all divs containing "John" and underlines them.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>contains demo</title>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div>John Resig</div>
+<div>George Martin</div>
+<div>Malcom John Sinclair</div>
+<div>J. Ohn</div>
+ 
+<script>
+$( "div:contains('John')" ).css( "text-decoration", "underline" );
+</script>
+ 
+</body>
+</html>
+
+2)empty selector
+Description: Select all elements that have no children (including text nodes).
+
+jQuery( ":empty" )
+This is the inverse of :parent.
+
+One important thing to note with :empty (and :parent) is that child elements include text nodes.
+
+Example:
+Finds all elements that are empty - they don't have child elements or text.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>empty demo</title>
+  <style>
+  td {
+    text-align: center;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<table border="1">
+  <tr><td>TD #0</td><td></td></tr>
+  <tr><td>TD #2</td><td></td></tr>
+  <tr><td></td><td>TD#5</td></tr>
+</table>
+ 
+<script>
+$( "td:empty" )
+  .text( "Was empty!" )
+  .css( "background", "rgb(255,220,200)" );
+</script>
+ 
+</body>
+</html>
+
+3)has selector
+Description: Selects elements which contain at least one element that matches the specified selector.
+
+jQuery( ":has(selector)" )
+selector: Any selector.
+
+The expression $( "div:has(p)" ) matches a <div> if a <p> exists anywhere among its descendants, not just as a direct child.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>has demo</title>
+  <style>
+  .test {
+    border: 3px inset red;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div><p>Hello in a paragraph</p></div>
+<div>Hello again! (with no paragraph)</div>
+ 
+<script>
+$( "div:has(p)" ).addClass( "test" );
+</script>
+ 
+</body>
+</html>
+
+4)parent selector
+Description: Select all elements that have at least one child node (either an element or text).
+
+jQuery( ":parent" )
+This is the inverse of :empty.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>parent demo</title>
+  <style>
+  td {
+    width: 40px;
+    background: green;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<table border="1">
+  <tr><td>Value 1</td><td></td></tr>
+  <tr><td>Value 2</td><td></td></tr>
+</table>
+ 
+<script>
+$( "td:parent" ).fadeTo( 1500, 0.3 );
+</script>
+ 
+</body>
+</html>

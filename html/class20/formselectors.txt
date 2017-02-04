@@ -1,0 +1,967 @@
+Category: Form
+
+:button Selector
+Selects all button elements and elements of type button.
+Also in: Selectors > jQuery Extensions
+
+:checkbox Selector
+Selects all elements of type checkbox.
+
+:checked Selector
+Matches all elements that are checked or selected.
+
+:disabled Selector
+Selects all elements that are disabled.
+
+:enabled Selector
+Selects all elements that are enabled.
+Also in: Selectors > jQuery Extensions
+
+:file Selector
+Selects all elements of type file.
+Also in: Selectors > Basic Filter
+
+:focus Selector
+Selects element if it is currently focused.
+Also in: Selectors > jQuery Extensions
+
+:image Selector
+Selects all elements of type image.
+Also in: Selectors > jQuery Extensions
+
+:input Selector
+Selects all input, textarea, select and button elements.
+Also in: Selectors > jQuery Extensions
+
+:password Selector
+Selects all elements of type password.
+Also in: Selectors > jQuery Extensions
+
+:radio Selector
+Selects all elements of type radio.
+Also in: Selectors > jQuery Extensions
+
+:reset Selector
+Selects all elements of type reset.
+Also in: Selectors > jQuery Extensions
+
+:selected Selector
+Selects all elements that are selected.
+Also in: Selectors > jQuery Extensions
+
+:submit Selector
+Selects all elements of type submit.
+Also in: Selectors > jQuery Extensions
+
+:text Selector
+Selects all input elements of type text.
+
+1)button selector
+Description: Selects all button elements and elements of type button.
+
+jQuery( ":button" )
+An equivalent selector to $( ":button" ) using valid CSS is $( "button, input[type='button']" ).
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>button demo</title>
+  <style>
+  textarea {
+    height: 35px;
+  }
+  div {
+    color: red;
+  }
+  fieldset {
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+  }
+  .marked {
+    background-color: yellow;
+    border: 3px red solid;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<form>
+  <fieldset>
+    <input type="button" value="Input Button">
+    <input type="checkbox">
+ 
+    <input type="file">
+    <input type="hidden">
+    <input type="image">
+ 
+    <input type="password">
+    <input type="radio">
+    <input type="reset">
+ 
+    <input type="submit">
+    <input type="text">
+    <select>
+      <option>Option</option>
+    </select>
+ 
+    <textarea></textarea>
+    <button>Button</button>
+  </fieldset>
+</form>
+ 
+<div></div>
+ 
+<script>
+var input = $( ":button" ).addClass( "marked" );
+$( "div" ).text( "For this type jQuery found " + input.length + "." );
+// Prevent the form from submitting
+$( "form" ).submit(function( event ) {
+  event.preventDefault();
+});
+</script>
+ 
+</body>
+</html>
+
+2)checkbox selector
+Description: Selects all elements of type checkbox.
+
+jQuery( ":checkbox" )
+$( ":checkbox" ) is equivalent to $( "[type=checkbox]" ). As with other pseudo-class selectors (those that begin with a ":") it is recommended to precede it with a tag name or some other selector; otherwise, the universal selector ("*") is implied. In other words, the bare $(':checkbox') is equivalent to $( "*:checkbox" ), so $( "input:checkbox" ) should be used instead.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>checkbox demo</title>
+  <style>
+  textarea {
+    height: 25px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<form>
+  <input type="button" value="Input Button">
+  <input type="checkbox">
+ 
+  <input type="checkbox">
+  <input type="file">
+  <input type="hidden">
+ 
+  <input type="image">
+  <input type="password">
+  <input type="radio">
+ 
+  <input type="reset">
+  <input type="submit">
+  <input type="text">
+ 
+  <select>
+    <option>Option</option>
+  </select>
+ 
+  <textarea></textarea>
+  <button>Button</button>
+</form>
+ 
+<div></div>
+ 
+<script>
+var input = $( "form input:checkbox" )
+  .wrap( "<span></span>" )
+  .parent()
+  .css({
+    background: "yellow",
+    border: "3px red solid"
+  });
+ 
+$( "div" )
+  .text( "For this type jQuery found " + input.length + "." )
+  .css( "color", "red" );
+ 
+// Prevent the form from submitting
+$( "form" ).submit(function( event ) {
+    event.preventDefault();
+});
+</script>
+ 
+</body>
+</html>
+
+3)checked selector
+Description: Matches all elements that are checked or selected.
+
+jQuery( ":checked" )
+The :checked selector works for checkboxes, radio buttons, and options of select elements.
+
+To retrieve only the selected options of select elements, use the :selected selector.
+
+Examples:
+Determine how many input elements are checked.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>checked demo</title>
+  <style>
+  div {
+    color: red;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<form>
+  <p>
+    <input type="checkbox" name="newsletter" value="Hourly" checked="checked">
+ 
+    <input type="checkbox" name="newsletter" value="Daily">
+    <input type="checkbox" name="newsletter" value="Weekly">
+ 
+    <input type="checkbox" name="newsletter" value="Monthly" checked>
+    <input type="checkbox" name="newsletter" value="Yearly">
+  </p>
+</form>
+<div></div>
+ 
+<script>
+var countChecked = function() {
+  var n = $( "input:checked" ).length;
+  $( "div" ).text( n + (n === 1 ? " is" : " are") + " checked!" );
+};
+countChecked();
+ 
+$( "input[type=checkbox]" ).on( "click", countChecked );
+</script>
+ 
+</body>
+</html>
+
+4)disabled selector
+Description: Selects all elements that are disabled.
+
+jQuery( ":disabled" )
+As with other pseudo-class selectors (those that begin with a ":"), it is recommended to precede it with a tag name or some other selector; otherwise, the universal selector ("*") is implied. In other words, the bare $(':disabled') is equivalent to $('*:disabled'), so $('input:disabled') or similar should be used instead.
+
+Although their resulting selections are usually the same, the :disabled selector is subtly different from the [disabled] attribute selector;:disabled matches elements that are actually disabled while [disabled] only checks for the existence of the disabled attribute.
+
+The :disabled selector should only be used for selecting HTML elements that support the disabled attribute (<button>, <input>, <optgroup>, <option>, <select>, <textarea>, <menuitem>, and <fieldset>).
+
+Example:
+Finds all input elements that are disabled.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>disabled demo</title>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<form>
+  <input name="email" disabled="disabled">
+  <input name="id">
+</form>
+ 
+<script>
+$( "input:disabled" ).val( "this is it" );
+</script>
+ 
+</body>
+</html>
+
+5)enabled selector
+Description: Selects all elements that are enabled.
+
+jQuery( ":enabled" )
+As with other pseudo-class selectors (those that begin with a ":") it is recommended to precede it with a tag name or some other selector; otherwise, the universal selector ( "*" ) is implied. In other words, the bare $( ":enabled" ) is equivalent to $( "*:enabled" ), so $( "input:enabled" ) or similar should be used instead.
+
+Although their resulting selections are usually the same, :enabled selector is subtly different from :not([disabled]); :enabled selects elements that have their boolean disabled property strictly equal to false, while :not([disabled]) selects elements that do not have a disabled attribute set (regardless of its value).
+
+The :enabled selector should only be used for selecting HTML elements that support the disabled attribute (<button>, <input>, <optgroup>, <option>, <select>, and <textarea>).
+
+Example:
+Find all input elements that are enabled.
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>enabled demo</title>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<form>
+  <input name="email" disabled="disabled">
+  <input name="id">
+</form>
+ 
+<script>
+$( "input:enabled" ).val( "this is it" );
+</script>
+ 
+</body>
+</html>
+
+6)file selector
+Description: Selects all elements of type file.
+
+jQuery( ":file" )
+:file is equivalent to [type="file"]. As with other pseudo-class selectors (those that begin with a ":") it is recommended to precede it with a tag name or some other selector; otherwise, the universal selector ("*") is implied. In other words, the bare $( ":file" ) is equivalent to $("*:file" ), so $( "input:file" ) should be used instead.
+
+Additional Notes:
+
+Because :file is a jQuery extension and not part of the CSS specification, queries using :file cannot take advantage of the performance boost provided by the native DOM querySelectorAll() method. For better performance in modern browsers, use [type="file"] instead.
+Example:
+Finds all file inputs.
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>file demo</title>
+  <style>
+  textarea {
+    height: 45px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<form>
+  <input type="button" value="Input Button">
+  <input type="checkbox">
+  <input type="file">
+  <input type="hidden">
+  <input type="image">
+  <input type="password">
+  <input type="radio">
+  <input type="reset">
+  <input type="submit">
+  <input type="text">
+  <select><option>Option</option></select>
+  <textarea></textarea>
+  <button>Button</button>
+</form>
+<div></div>
+ 
+<script>
+var input = $( "input:file" ).css({
+  background: "yellow",
+  border: "3px red solid"
+});
+$( "div" )
+  .text( "For this type jQuery found " + input.length + "." )
+  .css( "color", "red" );
+$( "form" ).submit(function( event ) {
+  event.preventDefault();
+});
+</script>
+ 
+</body>
+</html>
+
+7)ocus selector
+Description: Selects element if it is currently focused.
+
+jQuery( ":focus" )
+As with other pseudo-class selectors (those that begin with a ":"), it is recommended to precede :focus with a tag name or some other selector; otherwise, the universal selector ( "*" ) is implied. In other words, the bare $( ":focus" ) is equivalent to $( "*:focus" ). If you are looking for the currently focused element, $( document.activeElement ) will retrieve it without having to search the whole DOM tree.
+
+Example:
+Adds the focused class to whatever element has focus
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>focus demo</title>
+  <style>
+  .focused {
+    background: #abcdef;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div id="content">
+  <input tabIndex="1">
+  <input tabIndex="2">
+  <select tabIndex="3">
+    <option>select menu</option>
+  </select>
+  <div tabIndex="4">
+    a div
+  </div>
+</div>
+ 
+<script>
+$( "#content" ).delegate( "*", "focus blur", function() {
+  var elem = $( this );
+  setTimeout(function() {
+    elem.toggleClass( "focused", elem.is( ":focus" ) );
+  }, 0 );
+});
+</script>
+ 
+</body>
+</html>
+
+8)image selector
+Description: Selects all elements of type image.
+
+jQuery( ":image" )
+:image is equivalent to [type="image"]
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>image demo</title>
+  <style>
+  textarea {
+    height: 45px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<form>
+  <input type="button" value="Input Button">
+  <input type="checkbox">
+  <input type="file">
+  <input type="hidden">
+  <input type="image">
+  <input type="password">
+  <input type="radio">
+  <input type="reset">
+  <input type="submit">
+  <input type="text">
+  <select>
+    <option>Option</option>
+  </select>
+  <textarea></textarea>
+  <button>Button</button>
+</form>
+<div></div>
+ 
+<script>
+var input = $( "input:image" ).css({
+  background:"yellow",
+  border:"3px red solid"
+});
+$( "div" )
+  .text( "For this type jQuery found " + input.length + "." )
+  .css( "color", "red" );
+$( "form" ).submit(function( event ) {
+  event.preventDefault();
+});
+</script>
+ 
+</body>
+</html>
+
+9)input selector
+Description: Selects all input, textarea, select and button elements.
+
+jQuery( ":input" )
+The :input selector basically selects all form controls.
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>input demo</title>
+  <style>
+  textarea {
+    height: 25px;
+  }
+  	</style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<form>
+  <input type="button" value="Input Button">
+  <input type="checkbox">
+  <input type="file">
+  <input type="hidden">
+  <input type="image">
+  <input type="password">
+  <input type="radio">
+  <input type="reset">
+  <input type="submit">
+  <input type="text">
+  <select>
+    <option>Option</option>
+  </select>
+  <textarea></textarea>
+  <button>Button</button>
+</form>
+<div id="messages"></div>
+ 
+<script>
+var allInputs = $( ":input" );
+var formChildren = $( "form > *" );
+$( "#messages" ).text( "Found " + allInputs.length + " inputs and the form has " +
+  formChildren.length + " children." );
+ 
+$( "form" ).submit(function( event ) {
+  event.preventDefault();
+});
+</script>
+ 
+</body>
+</html>
+
+10)password selector
+Description: Selects all elements of type password.
+
+jQuery( ":password" )
+$( ":password" ) is equivalent to $( "[type=password]" ). As with other pseudo-class selectors (those that begin with a ":") it is recommended to precede it with a tag name or some other selector; otherwise, the universal selector ( "*" ) is implied. In other words, the bare $( ":password" ) is equivalent to $( "*:password" ), so $( "input:password" ) should be used instead.
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>password demo</title>
+  <style>
+  textarea {
+    height: 45px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<form>
+  <input type="button" value="Input Button">
+  <input type="checkbox">
+  <input type="file">
+  <input type="hidden">
+  <input type="image">
+  <input type="password">
+  <input type="radio">
+  <input type="reset">
+  <input type="submit">
+  <input type="text">
+  <select>
+    <option>Option</option>
+  </select>
+  <textarea></textarea>
+  <button>Button</button>
+</form>
+<div></div>
+ 
+<script>
+var input = $( "input:password" ).css({
+  background: "yellow",
+  border: "3px red solid"
+});
+$( "div" )
+  .text( "For this type jQuery found " + input.length + "." )
+  .css( "color", "red" );
+ 
+// Prevent form submission
+$( "form" ).submit(function() {
+  return false;
+});
+</script>
+ 
+</body>
+</html>
+
+11)radio selector
+Description: Selects all elements of type radio.
+
+jQuery( ":radio" )
+$( ":radio" ) is equivalent to $( "[type=radio]" ). As with other pseudo-class selectors (those that begin with a ":") it is recommended to precede it with a tag name or some other selector; otherwise, the universal selector ("*") is implied. In other words, the bare $( ":radio" ) is equivalent to $( "*:radio" ), so $( "input:radio" ) should be used instead.
+
+To select a set of associated radio buttons, you might use: $( "input[name=gender]:radio" )
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>radio demo</title>
+  <style>
+  textarea {
+    height: 25px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<form>
+  <input type="button" value="Input Button">
+  <input type="checkbox">
+  <input type="file">
+  <input type="hidden">
+  <input type="image">
+  <input type="password">
+  <input type="radio" name="asdf">
+  <input type="radio" name="asdf">
+  <input type="reset">
+  <input type="submit">
+  <input type="text">
+  <select>
+    <option>Option</option>
+  </select>
+  <textarea></textarea>
+  <button>Button</button>
+</form>
+<div></div>
+ 
+<script>
+var input = $( "form input:radio" )
+  .wrap( "<span></span>" )
+  .parent()
+    .css({
+      background: "yellow",
+      border: "3px red solid"
+    });
+ 
+$( "div" )
+  .text( "For this type jQuery found " + input.length + "." )
+  .css( "color", "red" );
+ 
+// Prevent form submission
+$( "form" ).submit(function( event ) {
+  event.preventDefault();
+});
+</script>
+ 
+</body>
+</html>
+
+12)reset selector
+Description: Selects all elements of type reset.
+
+jQuery( ":reset" )
+:reset is equivalent to [type="reset"]
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>reset demo</title>
+  <style>
+  textarea {
+    height: 45px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<form>
+  <input type="button" value="Input Button">
+  <input type="checkbox">
+  <input type="file">
+  <input type="hidden">
+  <input type="image">
+  <input type="password">
+  <input type="radio">
+  <input type="reset">
+  <input type="submit">
+  <input type="text">
+  <select>
+    <option>Option</option>
+  </select>
+  <textarea></textarea>
+  <button>Button</button>
+</form>
+<div></div>
+ 
+<script>
+var input = $( "input:reset" ).css({
+  background: "yellow",
+  border: "3px red solid"
+});
+$( "div" )
+  .text( "For this type jQuery found " + input.length + "." )
+  .css( "color", "red" );
+ 
+// Prevent form submission
+$( "form" ).submit(function( event ) {
+  event.preventDefault();
+});
+</script>
+ 
+</body>
+</html>
+
+13)selected selector
+Description: Selects all elements that are selected.
+
+jQuery( ":selected" )
+The :selected selector works for <option> elements. It does not work for checkboxes or radio inputs; use :checked for them.
+
+Additional Notes:
+
+Because :selected is a jQuery extension and not part of the CSS specification, queries using :selected cannot take advantage of the performance boost provided by the native DOM querySelectorAll() method. To achieve the best performance when using :selected to select elements, first select the elements using a pure CSS selector, then use .filter(":selected").
+Example:
+Attaches a change event to the select that gets the text for each selected option and writes them in the div. It then triggers the event for the initial text draw.
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>selected demo</title>
+  <style>
+  div {
+    color: red;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<select name="garden" multiple="multiple">
+  <option>Flowers</option>
+  <option selected="selected">Shrubs</option>
+  <option>Trees</option>
+  <option selected="selected">Bushes</option>
+  <option>Grass</option>
+  <option>Dirt</option>
+</select>
+<div></div>
+ 
+<script>
+$( "select" )
+  .change(function() {
+    var str = "";
+    $( "select option:selected" ).each(function() {
+      str += $( this ).text() + " ";
+    });
+    $( "div" ).text( str );
+  })
+  .trigger( "change" );
+</script>
+ 
+</body>
+</html>
+
+14)submit selector
+Description: Selects all elements of type submit.
+
+jQuery( ":submit" )
+The :submit selector typically applies to button or input elements. Note that some browsers treat <button> element as type="submit" implicitly while others (such as Internet Explorer) do not. To ensure that markup works consistently across all browsers and guarantee that it is possible to consistently select buttons that will submit a form, always specify a type property.
+
+
+Example:
+Finds all submit elements that are descendants of a td element.
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>submit demo</title>
+  <style>
+  textarea {
+    height: 45px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<form>
+<table id="exampleTable" border="1" cellpadding="10" align="center">
+  <tr>
+    <th>
+      Element Type
+    </th>
+    <th>
+      Element
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <input type="button" value="Input Button">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="checkbox">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="file">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="hidden">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="image">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="password">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="radio">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="reset">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="submit">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="text">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <select><option>Option</option></select>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <textarea></textarea>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button>Button</button>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button type="submit">Button type="submit"</button>
+    </td>
+  </tr>
+</table>
+</form>
+<div id="result"></div>
+ 
+<script>
+var submitEl = $( "td :submit" )
+  .parent( "td" )
+    .css({
+      background: "yellow",
+      border: "3px red solid"
+    })
+  .end();
+ 
+$( "#result" ).text( "jQuery matched " + submitEl.length + " elements." );
+ 
+// Prevent form submission
+$( "form" ).submit(function( event ) {
+  event.preventDefault();
+});
+ 
+// Extra JS to make the HTML easier to edit (None of this is relevant to the ':submit' selector)
+$( "#exampleTable" ).find( "td" ).each(function( i, el ) {
+  var inputEl = $( el ).children(),
+    inputType = inputEl.attr( "type" ) ? " type='" + inputEl.attr( "type" ) + "'" : "" ;
+  $( el ).before( "<td>" + inputEl[ 0 ].nodeName + inputType + "</td>" );
+})
+</script>
+ 
+</body>
+</html>
+
+15)text selector
+Description: Selects all input elements of type text.
+
+jQuery( ":text" )
+$( ":text" ) allows us to select all <input type="text"> elements. As with other pseudo-class selectors (those that begin with a ":") it is recommended to precede it with a tag name or some other selector; otherwise, the universal selector ( "*" ) is implied. In other words, the bare $( ":text" ) is equivalent to $( "*:text" ), so $( "input:text" ) should be used instead.
+
+
+This difference in behavior between $( ":text" ) and $( "[type=text]" ), can be seen below:
+
+$( "<input>" ).is( "[type=text]" ); // false
+$( "<input>" ).is( ":text" ); // true
+Additional Notes:
+
+Because :text is a jQuery extension and not part of the CSS specification, queries using :text cannot take advantage of the performance boost provided by the native DOM querySelectorAll() method. For better performance in modern browsers, use [type="text"] instead.
+Example:
+Finds all text inputs.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>text demo</title>
+  <style>
+  textarea {
+    height: 25px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<form>
+  <input type="button" value="Input Button">
+  <input type="checkbox">
+  <input type="file">
+  <input type="hidden">
+  <input type="image">
+  <input type="password">
+  <input type="radio">
+  <input type="reset">
+  <input type="submit">
+  <input type="text">
+  <select>
+    <option>Option</option>
+  </select>
+  <textarea></textarea>
+  <button>Button</button>
+</form>
+<div></div>
+ 
+<script>
+var input = $( "form input:text" ).css({
+  background: "yellow",
+  border: "3px red solid"
+});
+ 
+$( "div" )
+  .text( "For this type jQuery found " + input.length + "." )
+  .css( "color", "red" );
+ 
+// Prevent form submission
+$( "form" ).submit(function( event ) {
+  event.preventDefault();
+});
+</script>
+ 
+</body>
+</html>

@@ -1,0 +1,100 @@
+Category: jQuery Extensions
+
+:animated Selector
+Select all elements that are in the progress of an animation at the time the selector is run.
+Also in: Selectors > Attribute
+
+Attribute Not Equal Selector [name!=”value”]
+Select elements that either don’t have the specified attribute, or do have the specified attribute but not with a certain value.
+Also in: Selectors > Form
+
+:button Selector
+Selects all button elements and elements of type button.
+Also in: Selectors > Form
+
+:checkbox Selector
+Selects all elements of type checkbox.
+Also in: Selectors > Basic Filter
+
+:eq() Selector
+Select the element at index n within the matched set.
+Also in: Selectors > Basic Filter
+
+:even Selector
+Selects even elements, zero-indexed. See also odd.
+Also in: Selectors > Form
+
+:file Selector
+Selects all elements of type file.
+Also in: Selectors > Basic Filter
+
+:first Selector
+Selects the first matched DOM element.
+Also in: Selectors > Basic Filter
+
+:gt() Selector
+Select all elements at an index greater than index within the matched set.
+Also in: Selectors > Content Filter
+
+:has() Selector
+Selects elements which contain at least one element that matches the specified selector.
+Also in: Selectors > Basic Filter
+
+:header Selector
+Selects all elements that are headers, like h1, h2, h3 and so on.
+Also in: Selectors > Visibility Filter
+
+:hidden Selector
+Selects all elements that are hidden.
+Also in: Selectors > Form
+
+:image Selector
+Selects all elements of type image.
+Also in: Selectors > Form
+
+:input Selector
+Selects all input, textarea, select and button elements.
+Also in: Selectors > Basic Filter
+
+:last Selector
+Selects the last matched element.
+Also in: Selectors > Basic Filter
+
+:lt() Selector
+Select all elements at an index less than index within the matched set.
+Also in: Selectors > Basic Filter
+
+:odd Selector
+Selects odd elements, zero-indexed. See also even.
+Also in: Selectors > Content Filter
+
+:parent Selector
+Select all elements that have at least one child node (either an element or text).
+Also in: Selectors > Form
+
+:password Selector
+Selects all elements of type password.
+Also in: Selectors > Form
+
+:radio Selector
+Selects all elements of type radio.
+Also in: Selectors > Form
+
+:reset Selector
+Selects all elements of type reset.
+Also in: Selectors > Form
+
+:selected Selector
+Selects all elements that are selected.
+Also in: Selectors > Form
+
+:submit Selector
+Selects all elements of type submit.
+Also in: Selectors > Form
+
+:text Selector
+Selects all input elements of type text.
+Also in: Selectors > Visibility Filter
+
+:visible Selector
+Selects all elements that are visible.

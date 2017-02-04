@@ -1,0 +1,580 @@
+:first-child Selector
+Selects all elements that are the first child of their parent.
+
+:first-of-type Selector
+Selects all elements that are the first among siblings of the same element name.
+
+:last-child Selector
+Selects all elements that are the last child of their parent.
+
+:last-of-type Selector
+Selects all elements that are the last among siblings of the same element name.
+
+:nth-child() Selector
+Selects all elements that are the nth-child of their parent.
+
+:nth-last-child() Selector
+Selects all elements that are the nth-child of their parent, counting from the last element to the first.
+
+:nth-last-of-type() Selector
+Selects all the elements that are the nth-child of their parent in relation to siblings with the same element name, counting from the last element to the first.
+
+:nth-of-type() Selector
+Selects all elements that are the nth child of their parent in relation to siblings with the same element name.
+
+:only-child Selector
+Selects all elements that are the only child of their parent.
+
+:only-of-type Selector
+Selects all elements that have no siblings with the same element name.
+
+1)first-child selector
+
+Description: Selects all elements that are the first child of their parent.
+
+jQuery( ":first-child" )
+While :first matches only a single element, the :first-child selector can match more than one: one for each parent. This is equivalent to :nth-child(1).
+
+Example:
+Finds the first span in each matched div to underline and add a hover state.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>first-child demo</title>
+  <style>
+  span {
+    color: #008;
+  }
+  span.sogreen {
+    color: green;
+    font-weight: bolder;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div>
+  <span>John,</span>
+  <span>Karl,</span>
+  <span>Brandon</span>
+</div>
+<div>
+  <span>Glen,</span>
+  <span>Tane,</span>
+  <span>Ralph</span>
+</div>
+ 
+<script>
+$( "div span:first-child" )
+  .css( "text-decoration", "underline" )
+  .hover(function() {
+    $( this ).addClass( "sogreen" );
+  }, function() {
+    $( this ).removeClass( "sogreen" );
+  });
+</script>
+ 
+</body>
+</html>
+
+2)first-of-type selector
+Description: Selects all elements that are the first among siblings of the same element name.
+
+jQuery( ":first-of-type" )
+The :first-of-type selector matches elements that have no other element with both the same parent and the same element name coming before it in the document tree.
+
+Example:
+Find the first span in each matched div and add a class to it.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>first-of-type demo</title>
+  <style>
+  span.fot {
+    color: red;
+    font-size: 120%;
+    font-style: italic;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div>
+  <span>Corey,</span>
+  <span>Yehuda,</span>
+  <span>Adam,</span>
+  <span>Todd</span>
+</div>
+<div>
+  <b>Nobody,</b>
+  <span>Jörn,</span>
+  <span>Scott,</span>
+  <span>Timo</span>
+</div>
+ 
+<script>
+$( "span:first-of-type" ).addClass( "fot" );
+</script>
+ 
+</body>
+</html>
+
+3)last-child selector
+Description: Selects all elements that are the last child of their parent.
+
+jQuery( ":last-child" )
+While :last matches only a single element, :last-child can match more than one: one for each parent.
+
+Example:
+Find the last span in each matched div and add some css plus a hover state.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>last-child demo</title>
+  <style>
+  span.solast {
+    text-decoration: line-through;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div>
+  <span>John,</span>
+  <span>Karl,</span>
+  <span>Brandon,</span>
+  <span>Sam</span>
+</div>
+<div>
+  <span>Glen,</span>
+  <span>Tane,</span>
+  <span>Ralph,</span>
+  <span>David</span>
+</div>
+ 
+<script>
+$( "div span:last-child" )
+  .css({ color:"red", fontSize:"80%" })
+  .hover(function() {
+    $( this ).addClass( "solast" );
+  }, function() {
+    $( this ).removeClass( "solast" );
+  });
+</script>
+ 
+</body>
+</html>
+
+4)last-of-type selector
+Description: Selects all elements that are the last among siblings of the same element name.
+
+jQuery( ":last-of-type" )
+The :last-of-type selector matches elements that have no other element with the same parent and the same element name coming after it in the document tree.
+
+Example:
+Find the last span in each matched div and add some css plus a hover state.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>last-of-type demo</title>
+  <style>
+  span.solast {
+    text-decoration: line-through;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div>
+  <span>Corey,</span>
+  <span>Yehuda,</span>
+  <span>Adam,</span>
+  <span>Todd</span>
+</div>
+<div>
+  <span>Jörn,</span>
+  <span>Scott,</span>
+  <span>Timo,</span>
+  <b>Nobody</b>
+</div>
+ 
+<script>
+$( "span:last-of-type" )
+  .css({ color:"red", fontSize:"80%" })
+  .hover(function() {
+    $( this ).addClass( "solast" );
+  }, function() {
+    $( this ).removeClass( "solast" );
+  });
+</script>
+ 
+</body>
+</html>
+
+5)nth-child selector
+Description: Selects all elements that are the nth-child of their parent.
+
+jQuery( ":nth-child(index/even/odd/equation)" )
+index: The index of each child to match, starting with 1, the string even or odd, or an equation ( eg. :nth-child(even), :nth-child(4n) )
+
+Because jQuery's implementation of :nth- selectors is strictly derived from the CSS specification, the value of n is "1-indexed", meaning that the counting starts at 1. For other selector expressions such as :eq() or :even jQuery follows JavaScript's "0-indexed" counting. Given a single <ul> containing two <li>s, $( "li:nth-child(1)" ) selects the first <li> while  $( "li:eq(1)" ) selects the second.
+
+The :nth-child(n) pseudo-class is easily confused with :eq(n), even though the two can result in dramatically different matched elements. With :nth-child(n), all children are counted, regardless of what they are, and the specified element is selected only if it matches the selector attached to the pseudo-class. With :eq(n) only the selector attached to the pseudo-class is counted, not limited to children of any other element, and the (n+1)th one (n is 0-based) is selected.
+
+Further discussion of this unusual usage can be found in the W3C CSS specification.
+
+Examples:
+Find the second li in each matched ul and note it.
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>nth-child demo</title>
+  <style>
+  div {
+    float: left;
+  }
+  span {
+    color: blue;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div>
+  <ul>
+    <li>John</li>
+    <li>Karl</li>
+    <li>Brandon</li>
+  </ul>
+</div>
+<div>
+  <ul>
+    <li>Sam</li>
+  </ul>
+</div>
+<div>
+  <ul>
+    <li>Glen</li>
+    <li>Tane</li>
+    <li>Ralph</li>
+    <li>David</li>
+  </ul>
+</div>
+ 
+<script>
+$( "ul li:nth-child(2)" ).append( "<span> - 2nd!</span>" );
+</script>
+ 
+</body>
+</html>
+
+6)nth-last-child selector
+Description: Selects all elements that are the nth-child of their parent, counting from the last element to the first.
+
+jQuery( ":nth-last-child(index/even/odd/equation)" )
+index: The index of each child to match, starting with the last one (1), the string even or odd, or an equation ( eg. :nth-last-child(even), :nth-last-child(4n) )
+
+Because jQuery's implementation of :nth- selectors is strictly derived from the CSS specification, the value of n is "1-indexed", meaning that the counting starts at 1. For other selector expressions such as :eq() or :even jQuery follows JavaScript's "0-indexed" counting. Given a single <ul> containing three <li>s, $( "li:nth-last-child(1)" ) selects the third, last, <li>.
+
+Example:
+Find the second to last li in each matched ul and note it.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>nth-last-child demo</title>
+  <style>
+  div {
+    float: left;
+  }
+  span {
+    color: blue;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div>
+  <ul>
+    <li>John</li>
+    <li>Karl</li>
+    <li>Adam</li>
+  </ul>
+</div>
+<div>
+  <ul>
+    <li>Dan</li>
+  </ul>
+</div>
+<div>
+  <ul>
+    <li>Dave</li>
+    <li>Rick</li>
+    <li>Timmy</li>
+    <li>Gibson</li>
+  </ul>
+</div>
+<script>
+$( "ul li:nth-last-child(2)" ).append( "<span> - 2nd to last!</span>" );
+</script>
+ 
+</body>
+</html>
+
+
+7)nth-last-of-type selector
+Description: Selects all the elements that are the nth-child of their parent in relation to siblings with the same element name, counting from the last element to the first.
+
+jQuery( ":nth-last-of-type(index/even/odd/equation)" )
+index: The index of each child to match, starting with the last one (1), the string even or odd, or an equation ( eg. :nth-last-of-type(even), :nth-last-of-type(4n) )
+
+Because jQuery's implementation of :nth- selectors is strictly derived from the CSS specification, the value of n is "1-indexed", meaning that the counting starts at 1. For other selector expressions such as :eq() or :even jQuery follows JavaScript's "0-indexed" counting. Given a single <ul> containing three <li>s, $('li:nth-last-of-type(1)') selects the third, last, <li>.
+
+Further discussion of this usage can be found in the W3C CSS specification.
+
+Examples:
+Find the second to last li in each matched ul and note it.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>nth-last-of-type demo</title>
+  <style>
+  div {
+    float: left;
+  }
+  span {
+    color: blue;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div>
+  <ul>
+    <li>John</li>
+    <li>Karl</li>
+    <li>Adam</li>
+  </ul>
+</div>
+<div>
+  <ul>
+    <li>Dan</li>
+  </ul>
+</div>
+<div>
+  <ul>
+    <li>Dave</li>
+    <li>Rick</li>
+    <li>Timmy</li>
+    <li>Gibson</li>
+  </ul>
+</div>
+ 
+<script>
+$( "ul li:nth-last-of-type(2)" ).append( "<span> - 2nd to last!</span>" );
+</script>
+ 
+</body>
+</html>
+
+8)nth-of-type selector
+Description: Selects all elements that are the nth child of their parent in relation to siblings with the same element name.
+
+jQuery( ":nth-of-type(index/even/odd/equation)" )
+index: The index of each child to match, starting with 1, the string even or odd, or an equation ( eg. :nth-of-type(even), :nth-of-type(4n) )
+
+Because jQuery's implementation of :nth- selectors is strictly derived from the CSS specification, the value of n is "1-indexed", meaning that the counting starts at 1. For other selector expressions such as :eq() or :even jQuery follows JavaScript's "0-indexed" counting.
+
+Further discussion of this usage can be found in the W3C CSS specification.
+
+Example:
+Find each span that is second in relation to its sibling spans.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>nth-of-type demo</title>
+  <style>
+  .nth {
+    color: red;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div>
+  <span>John</span>,
+  <b>Kim</b>,
+  <span>Adam</span>,
+  <b>Rafael</b>,
+  <span>Oleg</span>
+</div>
+<div>
+  <b>Dave</b>,
+  <span>Ann</span>
+</div>
+<div>
+  <i><span>Maurice</span></i>,
+  <span>Richard</span>,
+  <span>Ralph</span>,
+  <span>Jason</span>
+</div>
+ 
+<script>
+$( "span:nth-of-type(2)" )
+  .append( "<span> is 2nd sibling span</span>" )
+  .addClass( "nth" );
+</script>
+ 
+</body>
+</html>
+
+9)only-child selector
+Description: Selects all elements that are the only child of their parent.
+
+jQuery( ":only-child" )
+If the parent has other child elements, nothing is matched.
+
+Example:
+Change the text and add a border for each button that is the only child of its parent.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>only-child demo</title>
+  <style>
+  div {
+    width: 100px;
+    height: 80px;
+    margin: 5px;
+    float: left;
+    background: #b9e;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div>
+  <button>Sibling!</button>
+  <button>Sibling!</button>
+</div>
+ 
+<div>
+  <button>Sibling!</button>
+</div>
+ 
+<div>
+  None
+</div>
+ 
+<div>
+  <button>Sibling!</button>
+  <button>Sibling!</button>
+  <button>Sibling!</button>
+</div>
+ 
+<div>
+  <button>Sibling!</button>
+</div>
+ 
+<script>
+$( "div button:only-child" ).text( "Alone" ).css( "border", "2px blue solid" );
+</script>
+ 
+</body>
+</html>
+
+10)only-of-type selector
+Description: Selects all elements that have no siblings with the same element name.
+
+jQuery( ":only-of-type" )
+If the parent has other child elements with the same element name, nothing is matched.
+
+Example:
+Change the text and add a border for each button that is the only child button of its parent.
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>only-of-type demo</title>
+  <style>
+  div {
+    width: 100px;
+    height: 80px;
+    margin: 5px;
+    float: left;
+    background: #b9e;
+  }
+  span {
+    padding: 2px;
+    margin: 3px;
+    line-height: 1.4;
+    border: 1px solid #000;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div>
+  <button>Sibling!</button>
+  <button>Sibling!</button>
+</div>
+ 
+<div>
+  <button>Sibling!</button>
+</div>
+<div>
+  None
+</div>
+ 
+<div>
+  <button>Sibling!</button>
+  <span>Sibling!</span>
+  <span>Sibling!</span>
+</div>
+ 
+<div>
+  <button>Sibling!</button>
+</div>
+ 
+<script>
+  $( "button:only-of-type" ).text( "Alone" ).css( "border", "2px blue solid" );
+</script>
+ 
+</body>
+</html>
