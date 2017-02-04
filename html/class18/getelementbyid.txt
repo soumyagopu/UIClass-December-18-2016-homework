@@ -1,0 +1,23 @@
+Get Element by Matching the Value of the 「id」 Attribute
+• document.getElementById(id_string) → Return a element object. Returns null if not found.
+var elem = document.getElementById("xyz");
+
+elem.style.color="red"; // change color to red
+Get Elements by Tag Name
+• document.getElementsByTagName(tag_name) → Return a live HTMLCollection. The tag_name is "div", "span", "p", etc.
+// example of document.getElementsByTagName()
+
+var myList = document.getElementsByTagName("p"); // get all p elements
+
+myList.length; // show number of items
+
+myList[0].style.color = "red"; // make the first one red
+Get Elements by Matching the Value of the 「class」 Attribute
+• document.getElementsByClassName("class_values") → Return a live HTMLCollection. The class_values can be multiple classes separated by space. For example: "aa bb", and it'll get elements, where each element is in both class “aa” and “bb”.
+// get element of class abc
+
+var myList = document.getElementsByClassName("abc");
+
+myList[0].style.color = "red"; // make the first one red
+
+

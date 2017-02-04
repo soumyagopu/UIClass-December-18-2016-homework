@@ -1,0 +1,43 @@
+The event.stopPropagation() method stops the bubbling of anevent to parent elements, preventing any parent event handlers from being executed. Tip: Use the event.isPropagationStopped() method to check whether this method was called for the event.
+ When the BODY of this HTML document loads, an event listener is registered with the top row of the TABLE. The event listener handles the event by executing the function stopEvent, which changes the value in the bottom cell of the table.
+However, stopEvent also calls an event object method, event.stopPropagation, which keeps the event from bubbling any further up into the DOM. Note that the table itself has an onclick event handler that ought to display a message when the table is clicked. But the stopEvent method has stopped propagation, and so after the data in the table is updated, the event phase is effectively ended, and an alert box is displayed to confirm this.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Event Propagation</title>
+
+<style>
+#t-daddy { border: 1px solid red }
+#c1 { background-color: pink; }
+</style>
+
+<script>
+function stopEvent(ev) {
+  c2 = document.getElementById("c2");
+  c2.innerHTML = "hello";
+
+  // this ought to keep t-daddy from getting the click.
+  ev.stopPropagation();
+  alert("event propagation halted.");
+}
+
+function load() {
+  elem = document.getElementById("tbl1");
+  elem.addEventListener("click", stopEvent, false);
+}
+</script>
+</head>
+
+<body onload="load();">
+
+<table id="t-daddy" onclick="alert('hi');">
+  <tr id="tbl1">
+    <td id="c1">one</td>
+  </tr>
+  <tr>
+    <td id="c2">two</td>
+  </tr>
+</table>
+
+</body>
+</html>

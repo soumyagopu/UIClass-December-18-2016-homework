@@ -1,0 +1,18 @@
+The Selectors JavaScript API
+The Selectors API is not technically part of the W3C HTML5 spec, but is its own separate, small specification. It adds the querySelector() and querySelectorAll() methods to the Document, Element, and DocumentFragment objects.
+Using the querySelector() Method
+This method is a member of the document as well as page elements. It returns the first descendent element that matches the supplied selector string. Interestingly, we can use it in place of the document.getElementById('elementID') method by prepending the pound (#) character in front of the ID string: document.querySelector('#content'). Here's some code that retrieves a <DIV> element by ID and then applies the querySelector() method to it in order to return the first exterior link, using the CSS# selector that we created in the first example:
+?
+
+5	//replaces getElementById('linksDiv')
+var linksDiv = querySelector('#linksDiv'); 
+ 
+//get the first external link in the DIV
+var firstExternalLink = linksDiv.querySelector('a[href^="http://"]')
+
+Using the querySelectorAll() Method
+Just like querySelector(), it takes a CSS selector string as an argument. Only, instead of returning a single element, querySelectorAll() returns a NodeList of matching elements. Here are some examples:
+
+3	document.querySelectorAll('.mygroup') //returns all elements with class="mygroup"
+document.querySelectorAll('option[selected="selected"]') //returns the default selected option within each SELECT menu
+document.querySelectorAll('#mytable tr>td:nth-of-type(1)') //returns the first cell within each table row of "mytable" 
