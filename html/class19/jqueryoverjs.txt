@@ -1,0 +1,11 @@
+jQuery is a library, it is not a language.
+When using jQuery, you write Javascript code. jQuery doesn't need to do the same thing as Javascript, because it sits on top of Javascript, using Javascript.
+For example, there's no jQuery function that lets you concatenate strings.
+But there doesn't need to be, since Javascript can already concatenate strings. There's no need for jQuery to re-implement that functionality.
+Does that mean that jQuery can do less than Javascript? Mu.
+You can certainly do more in Javascript than you can do in jQuery. You can do anything in Javascript, while jQuery only provides a handful of shortcuts for often used functionality. What would take many lines of code to do correctly in plain Javascript is summarized in one function call in jQuery. The secret is that jQuery contains all these plain lines of Javascript, which someone has already written for you, so you won't need to. It's just a collection of Javascript snippets, nicely packaged up in objects and functions to make your life easier; it's not a completely different thing.
+Any functionality that jQuery or one of the jQuery plugins does not provide a shortcut for, you will have to write in plain Javascript. While you're at it you may want to write it as a jQuery plugin to make it reusable.
+No jQuery can only do a small part of what JavaScript can do.
+jQuery is now little more than a wrapper around a few simple JavaScript commands as everything that jQuery provided that was useful now has an equivalent command built directly into JavaScript itself.
+In a few more years jQuery will no longer exist - they have already started removing the code to support older browsers that no one uses any more.
+Anyway, to properly use jQuery right from when jQuery was first created you need a reasonable understanding of JavaScript first to be able to use it as there are many many things that jQuery cannot do.
